@@ -40,7 +40,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Hi, I'm Zac.
+                Hi, I&apos;m Zac.
                 <span className="text-blue-600 dark:text-blue-400">
                   {" "}
                   I build intelligent web solutions
@@ -135,8 +135,8 @@ export default function Home() {
             Ready to Build Something Amazing?
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-            Let's collaborate to bring your vision to life with cutting-edge
-            technology.
+            Let&apos;s collaborate to bring your vision to life with
+            cutting-edge technology.
           </p>
           <a
             href="/contact"
