@@ -7,9 +7,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Your Name - Senior Software Engineer",
+  title: "Zac Zadell | Full-Stack Developer & AI Engineer",
   description:
-    "Professional portfolio and services of a senior software engineer specializing in frontend development, API development, and AI integration.",
+    "Building intelligent web applications and AI solutions. Explore my projects, insights, and development expertise.",
 };
 
 export default function RootLayout({

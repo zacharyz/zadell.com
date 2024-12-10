@@ -63,7 +63,7 @@ export default function Footer() {
             ))}
           </div>
           <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-            <p>© {currentYear} Your Name. All rights reserved.</p>
+            <p>© {currentYear} Zac Zadell. All rights reserved.</p>
           </div>
         </div>
       </div>
