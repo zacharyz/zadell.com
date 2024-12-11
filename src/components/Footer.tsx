@@ -8,7 +8,7 @@ export default function Footer() {
   const socialLinks = [
     {
       name: "GitHub",
-      url: "https://github.com/yourusername",
+      url: "https://github.com/zacharyz",
       icon: (
         <svg
           className="w-5 h-5"
@@ -26,7 +26,7 @@ export default function Footer() {
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://linkedin.com/in/zacharyz",
       icon: (
         <svg
           className="w-5 h-5"
