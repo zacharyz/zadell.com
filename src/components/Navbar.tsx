@@ -22,7 +22,15 @@ export default function Navbar() {
     <nav className="fixed w-full bg-white dark:bg-gray-900 shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
+            <div className="relative w-10 h-10 group bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+              <span className="absolute inset-0 text-2xl font-bold text-blue-600 dark:text-blue-400 transform transition-transform group-hover:scale-110 flex items-center justify-center -mt-0.5">
+                Z
+              </span>
+              <span className="absolute inset-0 text-2xl font-bold text-gray-800 dark:text-gray-200 transform translate-x-1 translate-y-1 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5 flex items-center justify-center -mt-0.5">
+                Z
+              </span>
+            </div>
             <Link href="/" className="font-bold text-xl">
               Zac Zadell
             </Link>
