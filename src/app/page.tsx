@@ -23,10 +23,6 @@ export default function Home() {
         "Building scalable web applications and leading development teams",
     },
     {
-      title: "50+ Projects Delivered",
-      description: "From startups to enterprise-level applications",
-    },
-    {
       title: "Full-Stack Developer",
       description: "End-to-end solutions from frontend to backend architecture",
     },
@@ -73,7 +69,7 @@ export default function Home() {
             <div className="hidden lg:block relative">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl" />
               <Image
-                src="/images/profile3.jpg"
+                src="/images/profile.jpg"
                 alt="Zac Zadell - Full-Stack Developer & AI Engineer"
                 width={500}
                 height={500}
@@ -88,7 +84,7 @@ export default function Home() {
       {/* Highlights Section */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {highlights.map((highlight) => (
               <div
                 key={highlight.title}

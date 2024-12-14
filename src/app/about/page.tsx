@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function About() {
   return (
     <div className="pt-16 px-4">
@@ -65,7 +67,32 @@ export default function About() {
             to reach out.
           </p>
 
-          <p className="mb-6">[Contact Information / Social Media Links]</p>
+          <p className="mb-6">
+            <Link
+              href="/contact"
+              className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              Get in touch
+            </Link>{" "}
+            or find me on{" "}
+            <a
+              href="https://github.com/zacharyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              GitHub
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://www.linkedin.com/in/zacharyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              LinkedIn
+            </a>
+          </p>
         </div>
       </div>
     </div>
