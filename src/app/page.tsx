@@ -66,16 +66,18 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="hidden lg:block relative">
+            <div className="hidden lg:block relative flex items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl" />
-              <Image
-                src="/images/profile.jpg"
-                alt="Zac Zadell - Full-Stack Developer & AI Engineer"
-                width={500}
-                height={500}
-                className="relative rounded-full shadow-2xl"
-                priority
-              />
+              <div className="relative flex items-center justify-center">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Zac Zadell - Full-Stack Developer & AI Engineer"
+                  width={500}
+                  height={500}
+                  className="rounded-full shadow-2xl"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
