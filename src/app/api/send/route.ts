@@ -5,6 +5,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
+    if (!process.env.RESEND_API_KEY || !process.env.FROM_EMAIL || !process.env.TO_EMAIL) {
+      return NextResponse.json(
+        { error: "Missing environment variables" },
+        { status: 500 }
+      );
+    }
+
     const { name, email, message } = await req.json();
 
     await resend.emails.send({
