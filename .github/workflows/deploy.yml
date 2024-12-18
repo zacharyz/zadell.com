@@ -37,6 +37,15 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
+      - name: Debug
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          if [ -z "$RESEND_API_KEY" ]; then
+            echo "RESEND_API_KEY is empty"
+          else
+            echo "RESEND_API_KEY is set"
+          fi
 
   deploy:
     environment:
