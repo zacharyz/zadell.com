@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 // Add OPTIONS handler for CORS preflight
-export async function OPTIONS(_req: Request) {
+export async function OPTIONS() {
   return new NextResponse(null, {
     status: 200,
     headers: {
