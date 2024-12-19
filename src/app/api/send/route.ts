@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 export async function POST(req: Request) {
+  console.log('Method:', req.method);
   try {
     if (!process.env.RESEND_API_KEY || !process.env.FROM_EMAIL || !process.env.TO_EMAIL) {
       return NextResponse.json(

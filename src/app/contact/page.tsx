@@ -17,6 +17,7 @@ export default function Contact() {
     setStatus("loading");
 
     try {
+      console.log('Sending request to:', '/api/send');
       const response = await fetch("/api/send", {
         method: "POST",
         headers: {
@@ -25,11 +26,16 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error("Failed to send message");
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Response error:', errorData);
+        throw new Error("Failed to send message");
+      }
 
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    } catch {
+    } catch (error) {
+      console.error('Submit error:', error);
       setStatus("error");
     }
   };
