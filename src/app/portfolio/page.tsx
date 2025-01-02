@@ -122,7 +122,7 @@ function getGradientClass(index: number): string {
 }
 
 function getProjectIcon(title: string) {
-  const iconMap: { [key: string]: JSX.Element } = {
+  const iconMap: { [key: string]: React.ReactElement } = {
     "Workflow Summarization Engine": <SiPython className="w-12 h-12" />,
     "Document Generation Library": <SiPython className="w-12 h-12" />,
     "Discuss - Modern Discussion Forum": <SiNextdotjs className="w-12 h-12" />,

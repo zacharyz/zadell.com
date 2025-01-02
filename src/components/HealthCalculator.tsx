@@ -101,7 +101,11 @@ const Calculator = () => {
     // Current BMI and Body Fat
     const currentBMI = calculateBMI(currentWeightKg, heightM);
     setBMI(currentBMI.toFixed(1));
-    const currentBodyFat = calculateBodyFat(currentBMI, age, sexFactor);
+    const currentBodyFat = calculateBodyFat(
+      currentBMI,
+      parseFloat(age),
+      sexFactor
+    );
     setBodyFat(currentBodyFat.toFixed(1));
 
     // Goal calculations
@@ -123,7 +127,7 @@ const Calculator = () => {
         : parseFloat(goalWeight) / 2.205;
       const calculatedGoalBodyFat = calculateBodyFat(
         calculateBMI(goalWeightKg, heightM),
-        age,
+        parseFloat(age),
         sexFactor
       );
       setGoalBodyFat(calculatedGoalBodyFat.toFixed(1));
@@ -134,7 +138,7 @@ const Calculator = () => {
     setGoalBMI(calculatedGoalBMI.toFixed(1));
 
     // TDEE and time to goal calculations
-    const bmr = calculateBMR(currentWeightKg, heightCm, age, sex);
+    const bmr = calculateBMR(currentWeightKg, heightCm, parseFloat(age), sex);
     const calculatedTDEE = calculateTDEE(bmr);
     setTDEE(calculatedTDEE.toFixed(0));
 
@@ -239,8 +243,8 @@ const Calculator = () => {
         <Alert className="mb-4">
           <AlertDescription>
             This calculator has been calibrated for a specific body type (male,
-            44 years old, 5'10", 178.8 lbs) and may not be as accurate for
-            significantly different body types.
+            44 years old, 5&apos;10&quot;, 178.8 lbs) and may not be as accurate
+            for significantly different body types.
           </AlertDescription>
         </Alert>
         <div className="grid w-full items-center gap-4">
@@ -376,7 +380,10 @@ const Calculator = () => {
 
           <div className="flex flex-col space-y-1.5">
             <Label>Sex</Label>
-            <RadioGroup defaultValue="male" onValueChange={setSex}>
+            <RadioGroup
+              defaultValue="male"
+              onValueChange={(value: "male" | "female") => setSex(value)}
+            >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="male" id="male" />
                 <Label htmlFor="male">Male</Label>

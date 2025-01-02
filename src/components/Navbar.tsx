@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { ErrorBoundary } from "./ErrorBoundary";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -19,12 +18,12 @@ export default function Navbar() {
     const checkBlogPosts = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch('/api/hasBlogPosts');
-        if (!response.ok) throw new Error('Failed to fetch blog status');
+        const response = await fetch("/api/hasBlogPosts");
+        if (!response.ok) throw new Error("Failed to fetch blog status");
         const { hasPosts } = await response.json();
         if (mounted) setShowBlog(hasPosts);
       } catch (error) {
-        console.error('Error checking blog posts:', error);
+        console.error("Error checking blog posts:", error);
         if (mounted) setShowBlog(false);
       } finally {
         if (mounted) setIsLoading(false);
@@ -46,9 +45,14 @@ export default function Navbar() {
     { href: "/contact", label: "Contact" },
   ];
 
-  const navLinks = !isLoading && showBlog 
-    ? [...baseNavLinks.slice(0, 4), { href: "/blog", label: "Blog" }, ...baseNavLinks.slice(4)]
-    : baseNavLinks;
+  const navLinks =
+    !isLoading && showBlog
+      ? [
+          ...baseNavLinks.slice(0, 4),
+          { href: "/blog", label: "Blog" },
+          ...baseNavLinks.slice(4),
+        ]
+      : baseNavLinks;
 
   return (
     <nav className="fixed w-full bg-white dark:bg-gray-900 shadow-sm z-50">

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [showBlogLink, setShowBlogLink] = useState(false);
@@ -83,12 +84,12 @@ export default function Home() {
                   View Work
                 </a>
                 {showBlogLink && (
-                  <a
+                  <Link
                     href="/blog"
                     className="bg-gray-200 dark:bg-gray-700 px-8 py-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
                   >
                     Read Blog
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>
