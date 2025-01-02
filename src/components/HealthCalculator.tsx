@@ -19,7 +19,7 @@ const Calculator = () => {
   const [weight, setWeight] = useState<string>("");
   const [age, setAge] = useState<string>("");
   const [sex, setSex] = useState<"male" | "female">("male");
-  const [activityLevel, setActivityLevel] = useState<string>("sedentary");
+  const [activityLevel, setActivityLevel] = useState<string>("light");
   const [goalWeight, setGoalWeight] = useState<string>("");
   const [goalBodyFatPercentage, setGoalBodyFatPercentage] =
     useState<string>("");
@@ -54,7 +54,9 @@ const Calculator = () => {
     age: number,
     sexFactor: number
   ): number => {
-    const bmi = (bodyFatPercentage + 9 + 10.34 * sexFactor - 0.16 * age) / 1.39;
+    const bodyFatDecimal = bodyFatPercentage / 100;
+    const bmi =
+      (bodyFatDecimal * 100 + 9 + 10.34 * sexFactor - 0.16 * age) / 1.39;
     return bmi * (heightM * heightM);
   };
 
@@ -104,10 +106,11 @@ const Calculator = () => {
 
     // Goal calculations
     if (isBodyFatGoal) {
+      const bodyFatDecimal = parseFloat(goalBodyFatPercentage);
       goalWeightKg = calculateWeightFromBodyFat(
         heightM,
-        goalBodyFatPercentage,
-        age,
+        bodyFatDecimal,
+        parseFloat(age),
         sexFactor
       );
       setGoalWeight(
@@ -434,6 +437,12 @@ const Calculator = () => {
               <h3 className="font-bold mt-2">Projections:</h3>
               <p>TDEE: {tdee} calories/day</p>
               <p>Estimated time to goal: {timeToGoal} days</p>
+              <p>
+                Goal date:{" "}
+                {new Date(
+                  Date.now() + parseInt(timeToGoal) * 24 * 60 * 60 * 1000
+                ).toLocaleDateString()}
+              </p>
             </div>
           )}
         </div>
