@@ -34,6 +34,7 @@ const Calculator = () => {
   const [inches, setInches] = useState<string>("");
   const [tdee, setTDEE] = useState<string | null>(null);
   const [timeToGoal, setTimeToGoal] = useState<string | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const calculateBMI = (weightKg: number, heightM: number): number => {
     return weightKg / (heightM * heightM);
@@ -142,14 +143,88 @@ const Calculator = () => {
   };
 
   const handleCalculate = () => {
+    if (!validateInputs()) return;
     calculateProjections();
   };
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement>,
-    setter: (value: string) => void
+    setter: (value: string) => void,
+    field: string
   ) => {
-    setter(e.target.value);
+    const value = e.target.value;
+    setter(value);
+    if (errors[field]) {
+      setErrors((prev) => ({ ...prev, [field]: "" }));
+    }
+  };
+
+  const validateNumber = (
+    value: string,
+    fieldName: string,
+    min: number,
+    max: number
+  ): string | null => {
+    const num = parseFloat(value);
+    if (!value) return `${fieldName} is required`;
+    if (isNaN(num)) return `${fieldName} must be a number`;
+    if (num < min) return `${fieldName} must be at least ${min}`;
+    if (num > max) return `${fieldName} must be less than ${max}`;
+    return null;
+  };
+
+  const validateInputs = (): boolean => {
+    const newErrors: Record<string, string> = {};
+
+    if (isMetric) {
+      const heightError = validateNumber(height, "Height", 100, 250);
+      if (heightError) newErrors.height = heightError;
+    } else {
+      const feetError = validateNumber(feet, "Feet", 3, 8);
+      if (feetError) newErrors.feet = feetError;
+      const inchesError = validateNumber(inches, "Inches", 0, 11);
+      if (inchesError) newErrors.inches = inchesError;
+    }
+
+    const weightError = validateNumber(
+      weight,
+      "Weight",
+      isMetric ? 30 : 66,
+      isMetric ? 300 : 660
+    );
+    if (weightError) newErrors.weight = weightError;
+
+    const ageError = validateNumber(age, "Age", 18, 100);
+    if (ageError) newErrors.age = ageError;
+
+    if (isBodyFatGoal) {
+      const bfError = validateNumber(
+        goalBodyFatPercentage,
+        "Goal body fat",
+        5,
+        50
+      );
+      if (bfError) newErrors.goalBodyFat = bfError;
+    } else {
+      const goalWeightError = validateNumber(
+        goalWeight,
+        "Goal weight",
+        isMetric ? 30 : 66,
+        isMetric ? 300 : 660
+      );
+      if (goalWeightError) newErrors.goalWeight = goalWeightError;
+    }
+
+    const calorieError = validateNumber(
+      dailyCalorieLimit,
+      "Daily calorie limit",
+      1200,
+      5000
+    );
+    if (calorieError) newErrors.dailyCalorieLimit = calorieError;
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   return (
@@ -183,8 +258,12 @@ const Calculator = () => {
               <Input
                 id="height"
                 value={height}
-                onChange={(e) => handleInputChange(e, setHeight)}
+                onChange={(e) => handleInputChange(e, setHeight, "height")}
+                className={errors.height ? "border-red-500" : ""}
               />
+              {errors.height && (
+                <span className="text-sm text-red-500">{errors.height}</span>
+              )}
             </div>
           ) : (
             <div className="flex space-x-2">
@@ -193,16 +272,24 @@ const Calculator = () => {
                 <Input
                   id="feet"
                   value={feet}
-                  onChange={(e) => handleInputChange(e, setFeet)}
+                  onChange={(e) => handleInputChange(e, setFeet, "feet")}
+                  className={errors.feet ? "border-red-500" : ""}
                 />
+                {errors.feet && (
+                  <span className="text-sm text-red-500">{errors.feet}</span>
+                )}
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="inches">Inches</Label>
                 <Input
                   id="inches"
                   value={inches}
-                  onChange={(e) => handleInputChange(e, setInches)}
+                  onChange={(e) => handleInputChange(e, setInches, "inches")}
+                  className={errors.inches ? "border-red-500" : ""}
                 />
+                {errors.inches && (
+                  <span className="text-sm text-red-500">{errors.inches}</span>
+                )}
               </div>
             </div>
           )}
@@ -214,8 +301,12 @@ const Calculator = () => {
             <Input
               id="weight"
               value={weight}
-              onChange={(e) => handleInputChange(e, setWeight)}
+              onChange={(e) => handleInputChange(e, setWeight, "weight")}
+              className={errors.weight ? "border-red-500" : ""}
             />
+            {errors.weight && (
+              <span className="text-sm text-red-500">{errors.weight}</span>
+            )}
           </div>
 
           <div className="flex items-center space-x-2">
@@ -235,8 +326,16 @@ const Calculator = () => {
               <Input
                 id="goalBodyFat"
                 value={goalBodyFatPercentage}
-                onChange={(e) => handleInputChange(e, setGoalBodyFatPercentage)}
+                onChange={(e) =>
+                  handleInputChange(e, setGoalBodyFatPercentage, "goalBodyFat")
+                }
+                className={errors.goalBodyFat ? "border-red-500" : ""}
               />
+              {errors.goalBodyFat && (
+                <span className="text-sm text-red-500">
+                  {errors.goalBodyFat}
+                </span>
+              )}
             </div>
           ) : (
             <div className="flex flex-col space-y-1.5">
@@ -246,8 +345,16 @@ const Calculator = () => {
               <Input
                 id="goalWeight"
                 value={goalWeight}
-                onChange={(e) => handleInputChange(e, setGoalWeight)}
+                onChange={(e) =>
+                  handleInputChange(e, setGoalWeight, "goalWeight")
+                }
+                className={errors.goalWeight ? "border-red-500" : ""}
               />
+              {errors.goalWeight && (
+                <span className="text-sm text-red-500">
+                  {errors.goalWeight}
+                </span>
+              )}
             </div>
           )}
 
@@ -256,8 +363,12 @@ const Calculator = () => {
             <Input
               id="age"
               value={age}
-              onChange={(e) => handleInputChange(e, setAge)}
+              onChange={(e) => handleInputChange(e, setAge, "age")}
+              className={errors.age ? "border-red-500" : ""}
             />
+            {errors.age && (
+              <span className="text-sm text-red-500">{errors.age}</span>
+            )}
           </div>
 
           <div className="flex flex-col space-y-1.5">
@@ -295,8 +406,16 @@ const Calculator = () => {
             <Input
               id="calorie-limit"
               value={dailyCalorieLimit}
-              onChange={(e) => handleInputChange(e, setDailyCalorieLimit)}
+              onChange={(e) =>
+                handleInputChange(e, setDailyCalorieLimit, "dailyCalorieLimit")
+              }
+              className={errors.dailyCalorieLimit ? "border-red-500" : ""}
             />
+            {errors.dailyCalorieLimit && (
+              <span className="text-sm text-red-500">
+                {errors.dailyCalorieLimit}
+              </span>
+            )}
           </div>
 
           <Button onClick={handleCalculate}>Calculate</Button>
