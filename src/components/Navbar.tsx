@@ -2,21 +2,53 @@
 
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showBlog, setShowBlog] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
 
-  const navLinks = [
+  useEffect(() => {
+    let mounted = true;
+
+    const checkBlogPosts = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('/api/hasBlogPosts');
+        if (!response.ok) throw new Error('Failed to fetch blog status');
+        const { hasPosts } = await response.json();
+        if (mounted) setShowBlog(hasPosts);
+      } catch (error) {
+        console.error('Error checking blog posts:', error);
+        if (mounted) setShowBlog(false);
+      } finally {
+        if (mounted) setIsLoading(false);
+      }
+    };
+
+    checkBlogPosts();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const baseNavLinks = [
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
+
+  const navLinks = !isLoading && showBlog 
+    ? [...baseNavLinks.slice(0, 4), { href: "/blog", label: "Blog" }, ...baseNavLinks.slice(4)]
+    : baseNavLinks;
 
   return (
     <nav className="fixed w-full bg-white dark:bg-gray-900 shadow-sm z-50">

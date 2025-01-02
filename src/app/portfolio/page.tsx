@@ -1,3 +1,47 @@
+import { 
+  SiPython, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiReact, 
+  SiAstro,
+  SiPrisma 
+} from 'react-icons/si';
+
+function getGradientClass(index: number): string {
+  const gradients = [
+    'bg-gradient-to-br from-blue-400 to-blue-600',
+    'bg-gradient-to-br from-purple-400 to-purple-600',
+    'bg-gradient-to-br from-green-400 to-green-600',
+    'bg-gradient-to-br from-red-400 to-red-600',
+    'bg-gradient-to-br from-indigo-400 to-indigo-600',
+    'bg-gradient-to-br from-teal-400 to-teal-600',
+  ];
+  return gradients[index % gradients.length];
+}
+
+function getProjectIcon(title: string) {
+  const iconMap: { [key: string]: JSX.Element } = {
+    "Workflow Summarization Engine": <SiPython className="w-12 h-12" />,
+    "Document Generation Library": <SiPython className="w-12 h-12" />,
+    "Discuss - Modern Discussion Forum": <SiNextdotjs className="w-12 h-12" />,
+    "AstroJS Business Website": <SiAstro className="w-12 h-12" />,
+    "Code Snippet Manager": <SiPrisma className="w-12 h-12" />,
+    "Precision Health Calculator": <SiReact className="w-12 h-12" />,
+  };
+  return iconMap[title] || <SiTypescript className="w-12 h-12" />;
+}
+
+function getProjectDisplay(project: typeof projects[0], index: number) {
+  return (
+    <div className={`aspect-video ${getGradientClass(index)} flex flex-col items-center justify-center gap-4`}>
+      {getProjectIcon(project.title)}
+      <div className="text-white text-lg font-medium opacity-80">
+        {project.technologies[0]}
+      </div>
+    </div>
+  );
+}
+
 export default function Portfolio() {
   const projects = [
     {
@@ -93,12 +137,12 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto py-12">
         <h1 className="text-4xl font-bold mb-8">Portfolio</h1>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <div
               key={project.title}
-              className="border dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+              className="border dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="aspect-video bg-gray-100 dark:bg-gray-800" />
+              {getProjectDisplay(project, index)}
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
