@@ -1,8 +1,26 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [showBlogLink, setShowBlogLink] = useState(false);
+
+  useEffect(() => {
+    async function checkBlogPosts() {
+      try {
+        const response = await fetch("/api/blog?check=has-posts");
+        const data = await response.json();
+        setShowBlogLink(data.hasPosts);
+      } catch (error) {
+        console.error("Error checking blog posts:", error);
+        setShowBlogLink(false);
+      }
+    }
+
+    checkBlogPosts();
+  }, []);
+
   const skills = [
     {
       name: "Frontend",
@@ -64,6 +82,14 @@ export default function Home() {
                 >
                   View Work
                 </a>
+                {showBlogLink && (
+                  <a
+                    href="/blog"
+                    className="bg-gray-200 dark:bg-gray-700 px-8 py-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                  >
+                    Read Blog
+                  </a>
+                )}
               </div>
             </div>
             <div className="hidden lg:block relative flex items-center justify-center">
