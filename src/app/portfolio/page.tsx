@@ -21,6 +21,21 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "ModelChat",
+    description:
+      "A versatile LLM chat interface built with Next.js that leverages OpenRouter to communicate with various large language models. Features a modern UI, real-time streaming responses, and support for multiple AI models.",
+    technologies: [
+      "Next.js 15",
+      "TypeScript",
+      "OpenRouter",
+      "Tailwind CSS",
+      "Server Components",
+      "Streaming SSE",
+    ],
+    imageUrl: "/modelchat.jpg", // Add actual image later
+    link: "https://github.com/zacharyz/modelchat",
+  },
+  {
     title: "Workflow Summarization Engine",
     description:
       "A robust document processing and summarization pipeline library for medical and legal document analysis, featuring AI integration, parallel processing, and extensive workflow management capabilities.",
@@ -123,6 +138,7 @@ function getGradientClass(index: number): string {
 
 function getProjectIcon(title: string) {
   const iconMap: { [key: string]: React.ReactElement } = {
+    ModelChat: <SiNextdotjs className="w-12 h-12" />,
     "Workflow Summarization Engine": <SiPython className="w-12 h-12" />,
     "Document Generation Library": <SiPython className="w-12 h-12" />,
     "Discuss - Modern Discussion Forum": <SiNextdotjs className="w-12 h-12" />,
