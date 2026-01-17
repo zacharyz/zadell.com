@@ -1,10 +1,24 @@
-import { Inter } from "next/font/google";
+import { Playfair_Display, Itim, Inter } from "next/font/google";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-inter',
+});
+
+const playfair = Playfair_Display({ 
+  subsets: ["latin"],
+  variable: '--font-playfair',
+});
+
+const itim = Itim({ 
+  weight: "400",
+  subsets: ["latin"],
+  variable: '--font-itim',
+});
 
 export const metadata = {
   title: "Zac Zadell | Full-Stack Developer & AI Engineer",
@@ -20,8 +34,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300`}
+        className={`${playfair.variable} ${itim.variable} ${inter.variable} font-sans bg-background text-foreground transition-colors duration-300`}
       >
+        <div dangerouslySetInnerHTML={{ __html: `
+          <svg style="display: none;">
+            <defs>
+              <filter id="rough-edge">
+                <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
+              </filter>
+            </defs>
+          </svg>
+        ` }} />
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Navbar />

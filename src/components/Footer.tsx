@@ -45,25 +45,32 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="mt-auto bg-white dark:bg-gray-900 border-t dark:border-gray-700">
-      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center space-y-4">
-          <div className="flex space-x-6">
+    <footer className="mt-auto bg-background border-t-4 border-foreground relative overflow-hidden">
+      <div className="absolute inset-0 opacity-5 chess-board pointer-events-none" />
+      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col items-center space-y-10">
+          <div className="text-4xl font-serif italic tracking-[0.5em] text-foreground/20">A Strange Loop</div>
+          <div className="flex space-x-12">
             {socialLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.url}
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-300"
+                className="group relative"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <span className="sr-only">{link.name}</span>
-                {link.icon}
+                <div className="text-2xl font-serif hover:scale-150 transition-transform duration-500 hover:text-primary">
+                  {link.name === "GitHub" ? "∫" : link.name === "LinkedIn" ? "λ" : "π"}
+                </div>
+                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  {link.name}
+                </div>
               </Link>
             ))}
           </div>
-          <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-            <p>© {currentYear} Zac Zadell. All rights reserved.</p>
+          <div className="text-center text-sm font-serif tracking-[0.2em] uppercase opacity-40">
+            <p>© {currentYear} Zac Zadell &bull; Through the Looking Glass</p>
           </div>
         </div>
       </div>

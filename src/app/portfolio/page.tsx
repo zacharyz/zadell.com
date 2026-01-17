@@ -166,31 +166,40 @@ function getProjectDisplay(project: (typeof projects)[0], index: number) {
 
 export default function Portfolio() {
   return (
-    <div className="pt-16 px-4">
-      <div className="max-w-7xl mx-auto py-12">
-        <h1 className="text-4xl font-bold mb-8">Portfolio</h1>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="pt-40 px-4 bg-background strange-loop">
+      <div className="max-w-7xl mx-auto py-16">
+        <h1 className="text-6xl font-serif font-bold mb-16 tracking-tighter uppercase italic border-b-8 border-foreground inline-block">
+          The Gallery of Impossible Works
+        </h1>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className={`border dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
+              className={`bg-card ink-sketch overflow-hidden hover:-translate-y-2 transition-all duration-500 group ${
                 project.link ? "cursor-pointer" : ""
               }`}
               onClick={() =>
                 project.link && (window.location.href = project.link)
               }
             >
-              {getProjectDisplay(project, index)}
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <div className="relative">
+                {getProjectDisplay(project, index)}
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="text-white text-4xl font-serif font-bold italic rotate-12">VIEW</span>
+                </div>
+              </div>
+              <div className="p-8 border-t-2 border-foreground">
+                <h3 className="text-3xl font-bold mb-4 tracking-tight group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-foreground/80 mb-8 leading-relaxed">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm"
+                      className="px-4 py-1 bg-secondary text-secondary-foreground border-2 border-foreground font-bold text-sm uppercase tracking-widest"
                     >
                       {tech}
                     </span>

@@ -26,12 +26,22 @@ export default function Home() {
     {
       name: "Frontend",
       items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      symbol: "Σ",
     },
-    { name: "Backend", items: ["Node.js", "Python", "PostgreSQL", "Redis"] },
-    { name: "Cloud & DevOps", items: ["AWS", "Docker", "CI/CD", "Terraform"] },
+    { 
+      name: "Backend", 
+      items: ["Node.js", "Python", "PostgreSQL", "Redis"],
+      symbol: "λ",
+    },
+    { 
+      name: "Cloud & DevOps", 
+      items: ["AWS", "Docker", "CI/CD", "Terraform"],
+      symbol: "∞",
+    },
     {
       name: "AI & ML",
       items: ["OpenAI", "LangChain", "TensorFlow", "PyTorch"],
+      symbol: "Δ",
     },
   ];
 
@@ -54,73 +64,67 @@ export default function Home() {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Hero Section - Down the Rabbit Hole */}
+      <section className="py-24 px-4 bg-background relative overflow-hidden flex items-center min-h-[90vh] strange-loop">
+        <div className="absolute inset-0 opacity-10 chess-board pointer-events-none" />
+        <div className="max-w-7xl mx-auto w-full relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-left">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Hi, I&apos;m Zac.
-                <span className="text-blue-600 dark:text-blue-400">
-                  {" "}
-                  I build intelligent web solutions
-                </span>
+              <div className="mb-4 text-primary font-bold tracking-widest text-sm uppercase">Entering the Strange Loop</div>
+              <h1 className="text-6xl md:text-8xl mb-8 text-foreground font-serif leading-none tracking-tighter">
+                Curiouser & <br />
+                <span className="text-primary italic">Curiouser</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
-                Full-stack developer passionate about creating intelligent
-                applications that solve real problems
+              <p className="text-2xl md:text-3xl text-muted-foreground mb-12 font-serif max-w-xl italic">
+                &quot;I wonder if I&apos;ve been changed in the night? Let me think: was I the same when I got up this morning?&quot;
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-6">
                 <a
                   href="/contact"
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="bg-primary text-primary-foreground px-10 py-5 text-xl rounded-none hover:translate-x-1 hover:translate-y-1 transition-all ink-sketch font-bold"
                 >
                   Start a Project
                 </a>
                 <a
                   href="/portfolio"
-                  className="bg-gray-200 dark:bg-gray-700 px-8 py-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                  className="bg-background text-foreground px-10 py-5 text-xl rounded-none hover:-translate-x-1 hover:-translate-y-1 transition-all ink-sketch font-bold"
                 >
                   View Work
                 </a>
-                {showBlogLink && (
-                  <Link
-                    href="/blog"
-                    className="bg-gray-200 dark:bg-gray-700 px-8 py-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                  >
-                    Read Blog
-                  </Link>
-                )}
               </div>
             </div>
-            <div className="hidden lg:block relative flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl" />
-              <div className="relative flex items-center justify-center">
-                <Image
-                  src="/images/profile.jpg"
-                  alt="Zac Zadell - Full-Stack Developer & AI Engineer"
-                  width={500}
-                  height={500}
-                  className="rounded-full shadow-2xl"
-                  priority
-                />
-              </div>
+            <div className="hidden lg:block relative group">
+               <div className="absolute -inset-4 border-4 border-foreground rotate-6 group-hover:rotate-0 transition-transform duration-500" />
+               <div className="absolute -inset-4 border-4 border-primary -rotate-3 group-hover:rotate-0 transition-transform duration-500" />
+               <div className="relative aspect-square overflow-hidden ink-sketch bg-card">
+                  <Image
+                    src="/images/profile_zac_v2.jpg"
+                    alt="Zac Zadell - Through the Looking Glass"
+                    fill
+                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    priority
+                  />
+               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Highlights Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {highlights.map((highlight) => (
+      {/* Highlights Section - Chess Board Theme */}
+      <section className="py-32 px-4 border-y-4 border-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 chess-board" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0">
+            {highlights.map((highlight, index) => (
               <div
                 key={highlight.title}
-                className="p-6 rounded-xl border dark:border-gray-700 hover:shadow-lg transition-all"
+                className={`p-12 border-2 border-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500 group ${
+                  index % 2 === 0 ? 'bg-card' : 'bg-muted/20'
+                }`}
               >
-                <h3 className="text-2xl font-bold mb-2">{highlight.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <div className="text-4xl mb-6 font-serif opacity-20 group-hover:opacity-100 transition-opacity">0{index + 1}</div>
+                <h3 className="text-3xl mb-4 font-serif italic">{highlight.title}</h3>
+                <p className="text-xl leading-relaxed opacity-80 group-hover:opacity-100">
                   {highlight.description}
                 </p>
               </div>
@@ -129,28 +133,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
+      {/* Skills Section - The Logic of Wonderland */}
+      <section className="py-32 px-4 bg-foreground text-background relative">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Technical Expertise
+          <h2 className="text-5xl mb-20 text-center font-serif italic tracking-widest uppercase">
+            The Strange Loop of Skills
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {skills.map((category) => (
               <div
                 key={category.name}
-                className="p-6 bg-white dark:bg-gray-900 rounded-xl shadow-sm"
+                className="p-8 border-2 border-background/20 hover:border-primary transition-colors flex flex-col justify-between"
               >
-                <h3 className="text-xl font-semibold mb-4">{category.name}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.items.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div>
+                  <h3 className="text-2xl font-bold mb-8 text-primary font-serif">{category.name}</h3>
+                  <div className="flex flex-col gap-4">
+                    {category.items.map((skill) => (
+                      <div
+                        key={skill}
+                        className="text-lg font-serif italic border-b border-background/10 pb-2 hover:translate-x-2 transition-transform cursor-default"
+                      >
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 text-7xl text-background/15 font-serif select-none pointer-events-none group-hover:text-primary/20 transition-colors">
+                  {category.symbol}
                 </div>
               </div>
             ))}
@@ -159,18 +168,21 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 relative">
+        <div className="absolute top-0 right-1/4 w-20 h-20 rotate-45 opacity-40">
+           <Image src="/images/bee.png" alt="Bee" fill className="object-contain" />
+        </div>
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl mb-6 text-foreground">
             Ready to Build Something Amazing?
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+          <p className="text-xl text-muted-foreground mb-8">
             Let&apos;s collaborate to bring your vision to life with
             cutting-edge technology.
           </p>
           <a
             href="/contact"
-            className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:rotate-3 transition-transform font-bold rough-border shadow-lg"
           >
             Get in Touch
           </a>

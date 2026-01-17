@@ -13,7 +13,7 @@ export default function ExperimentsPage() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="flex min-h-screen flex-col items-center pt-40 px-4">
       <h1 className="text-4xl font-bold mb-8">Experiments</h1>
       <div className="grid gap-6 lg:grid-cols-2">
         {experiments.map((experiment) => (

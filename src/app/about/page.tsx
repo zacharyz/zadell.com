@@ -1,98 +1,100 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="pt-16 px-4">
-      <div className="max-w-7xl mx-auto py-12">
-        <h1 className="text-4xl font-bold mb-8">About Me</h1>
-        <div className="prose dark:prose-invert max-w-none">
-          <p className="mb-6">
-            Hello! I&apos;m{" "}
-            <span className="font-bold text-lg inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
-              Zac
-            </span>
-            , a software engineer and digital solutions consultant based in
-            Portland, Oregon, where I live with my daughter and two cats. My
-            journey in technology began when I wrote my first lines of code at
-            age 8, sparking a lifelong passion for software development that
-            eventually led me to earn my degree in Computer Science.
-          </p>
+    <div className="pt-40 px-4 bg-background strange-loop min-h-screen">
+      <div className="max-w-4xl mx-auto py-12 relative z-10">
+        <h1 className="text-7xl font-serif font-black mb-16 tracking-tighter uppercase italic leading-none border-b-8 border-foreground pb-4">
+          The <span className="text-primary italic">Architect</span>
+        </h1>
 
-          <p className="mb-6">
-            With over 18 years of experience in the tech industry, I&apos;ve had
-            the privilege of working with innovative companies ranging from
-            startups to industry giants like Facebook, Nike, and Unity
-            Technologies. Since 2005, I&apos;ve been deeply involved in the
-            startup ecosystem, contributing to the growth and success of
-            companies like GarageGames, AppFog, and ZenBusiness.
-          </p>
+        {/* Bio Section */}
+        <div className="grid md:grid-cols-3 gap-12 mb-24">
+          <div className="md:col-span-2 space-y-8 text-xl leading-relaxed">
+            <p>
+              Hello! I&apos;m{" "}
+              <span className="font-serif font-bold italic text-primary text-2xl">
+                Zac Zadell
+              </span>
+              , a software engineer and digital solutions consultant based in
+              Portland, Oregon. My journey in technology began when I wrote my first lines of code at
+              age 8, eventually leading me to over 18 years of building systems for giants like Nike, Facebook, and Unity.
+            </p>
+            <p>
+              Currently, as the founder of <strong>Zadell Consulting</strong>, I help businesses
+              leverage modern web architectures and AI to create impactful digital
+              solutions that don&apos;t just work—they resonate.
+            </p>
+          </div>
+          <div className="bg-card ink-sketch p-8 space-y-4 h-fit">
+            <h3 className="text-2xl font-serif font-bold italic uppercase border-b-2 border-primary pb-2">
+              The Arsenal
+            </h3>
+            <ul className="space-y-2 font-serif italic text-lg opacity-80">
+              <li>&lambda; Next.js & React</li>
+              <li>&lambda; AI & Neural Logic</li>
+              <li>&lambda; Cloud Architecture</li>
+              <li>&lambda; Process Automation</li>
+              <li>&lambda; Digital Strategy</li>
+            </ul>
+          </div>
+        </div>
 
-          <h2 className="text-2xl font-semibold mt-8 mb-4">What I Do</h2>
-          <p className="mb-4">
-            Currently, as the founder of Zadell Consulting, I help businesses
-            leverage modern web technologies and AI to create impactful digital
-            solutions. I specialize in:
-          </p>
-          <ul className="list-disc ml-6 mb-6">
-            <li>Full-stack development using Next.js, React, and TypeScript</li>
-            <li>AI integration and custom solutions</li>
-            <li>Business process automation</li>
-            <li>High-performance web applications</li>
-            <li>Data-driven development</li>
-            <li>Sales funnel optimization</li>
-          </ul>
+        {/* Branding Section */}
+        <div className="flex flex-col md:flex-row items-center gap-12 mb-12 bg-card ink-sketch p-12">
+          <div className="relative w-64 h-64 flex-shrink-0 ink-sketch p-2 bg-card">
+            <Image
+              src="/images/logo_zz_escher.jpg"
+              alt="ZZ Escher Logo"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h2 className="text-5xl font-serif font-black mb-6 tracking-tighter uppercase italic leading-none">
+              About the <br />
+              <span className="text-primary italic">Strange Loop</span>
+            </h2>
+            <p className="text-2xl font-serif italic opacity-70 leading-tight">
+              "I wonder if I've been changed in the night? Let me think: was I the same when I got up this morning?"
+            </p>
+          </div>
+        </div>
 
-          <h2 className="text-2xl font-semibold mt-8 mb-4">My Approach</h2>
-          <p className="mb-6">
-            I believe in building technology that not only works well but also
-            creates meaningful value for users and businesses alike. My
-            experience across different domains—from game development to
-            fintech—has taught me the importance of combining technical
-            excellence with practical business solutions.
-          </p>
-
-          <p className="mb-6">
-            When I&apos;m not coding or consulting, you might find me exploring
-            Portland&apos;s food scene, spending time with my daughter and cats,
-            or staying current with the latest developments in tech.
-          </p>
-
-          <h2 className="text-2xl font-semibold mt-8 mb-4">
-            Let&apos;s Connect
+        {/* Philosophy Section */}
+        <section className="mb-24 bg-foreground text-background p-12 ink-sketch relative overflow-hidden">
+          <div className="absolute top-4 right-4 text-9xl font-serif opacity-10 select-none">
+            &phi;
+          </div>
+          <h2 className="text-4xl font-serif font-bold mb-8 uppercase tracking-widest italic border-b-2 border-background/20 pb-4">
+            The Creative Philosophy
           </h2>
-          <p className="mb-6">
-            I&apos;m always interested in connecting with fellow tech
-            enthusiasts and businesses looking to innovate. Whether you want to
-            discuss a potential project or just chat about technology, feel free
-            to reach out.
-          </p>
+          <div className="space-y-6 text-xl leading-relaxed">
+            <p>
+              In an age of AI-driven precision and the silent approach of AGI, I believe we crave the <strong>tactile imperfection</strong> of the human touch. This digital space is a deliberate return to the "analog" soul of computing—a fusion of rigorous code and the woodcut whimsy of a simpler era.
+            </p>
+            <p>
+              The theme draws from two pillars of paradoxical thought: Lewis Carroll&apos;s <em>Alice in Wonderland</em> and Douglas Hofstadter&apos;s <em>Gödel, Escher, Bach</em>. I see GEB not just as a book on logic, but as a mirror for our modern age—a reminder that intelligence is a beautiful, recursive, and ultimately <em>human</em> strange loop.
+            </p>
+            <p>
+              While I build with the most advanced tools of our time, I believe the future belongs to those who can weave the efficiency of the machine with the unmistakable "ink-smudge" of human creativity.
+            </p>
+          </div>
+        </section>
 
-          <p className="mb-6">
-            <Link
-              href="/contact"
-              className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
-            >
-              Get in touch
-            </Link>{" "}
-            or find me on{" "}
-            <a
-              href="https://github.com/zacharyz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
-            >
-              GitHub
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://www.linkedin.com/in/zacharyz/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
-            >
-              LinkedIn
-            </a>
-          </p>
+        {/* Footer Link */}
+        <div className="text-center pt-8 border-t-4 border-foreground">
+          <Link
+            href="/contact"
+            className="inline-block bg-primary text-primary-foreground text-3xl font-serif font-bold italic px-12 py-6 ink-sketch hover:translate-x-1 hover:translate-y-1 transition-all uppercase tracking-tighter"
+          >
+            Dispatch a Message
+          </Link>
+          <div className="mt-8 flex justify-center gap-8 text-xl font-serif italic">
+            <a href="https://github.com/zacharyz" className="hover:text-primary underline">GitHub</a>
+            <a href="https://linkedin.com/in/zacharyz" className="hover:text-primary underline">LinkedIn</a>
+          </div>
         </div>
       </div>
     </div>

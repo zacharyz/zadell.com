@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -55,43 +56,48 @@ export default function Navbar() {
       : baseNavLinks;
 
   return (
-    <nav className="fixed w-full bg-white dark:bg-gray-900 shadow-sm z-50">
+    <nav className="fixed w-full bg-background border-b-4 border-foreground z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center gap-3">
-            <div className="relative w-10 h-10 group bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
-              <span className="absolute inset-0 text-2xl font-bold text-blue-600 dark:text-blue-400 transform transition-transform group-hover:scale-110 flex items-center justify-center -mt-0.5">
-                Z
-              </span>
-              <span className="absolute inset-0 text-2xl font-bold text-gray-800 dark:text-gray-200 transform translate-x-1 translate-y-1 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5 flex items-center justify-center -mt-0.5">
-                Z
-              </span>
-            </div>
-            <Link href="/" className="font-bold text-xl">
-              Zac Zadell
+        <div className="flex justify-between h-24 items-center">
+          <div className="flex items-center gap-6">
+            <Link href="/" className="flex items-center gap-4 group">
+              <div className="relative w-14 h-14 ink-sketch p-1 bg-card hover:rotate-180 transition-transform duration-1000 overflow-hidden">
+                <Image
+                  src="/images/logo_zz_escher.jpg"
+                  alt="ZZ Escher Logo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-bold text-3xl font-serif text-foreground tracking-tighter uppercase leading-none">Zac Zadell</span>
+                <span className="text-xs font-serif italic opacity-50 tracking-[0.2em] uppercase">The Strange Loop</span>
+              </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-12">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={`${
                   pathname === link.href
-                    ? "text-blue-600 dark:text-blue-400"
-                    : "text-gray-700 dark:text-gray-300"
-                } hover:text-blue-600 dark:hover:text-blue-400 transition-colors`}
+                    ? "text-primary italic underline"
+                    : "text-foreground hover:text-primary transition-all hover:scale-110"
+                } font-serif text-xl tracking-tight`}
               >
                 {link.label}
               </Link>
             ))}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800"
+              className="p-3 ink-sketch bg-white hover:bg-black hover:text-white transition-colors rotate-45"
             >
-              {theme === "dark" ? "🌞" : "🌙"}
+              <div className="-rotate-45">
+                 {theme === "dark" ? "🌞" : "🌙"}
+              </div>
             </button>
           </div>
 
