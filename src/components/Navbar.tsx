@@ -60,14 +60,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center gap-4 group">
-              <div className="relative w-14 h-14 ink-sketch p-1 bg-card hover:rotate-180 transition-transform duration-1000 overflow-hidden">
-                <Image
-                  src="/images/logo_zz_escher.jpg"
-                  alt="ZZ Escher Logo"
-                  fill
-                  className="object-cover"
-                />
+            <Link href="/" className="flex items-center gap-4 group px-2">
+              <div className="relative w-14 h-14 flex-shrink-0">
+                <div className="absolute -inset-1 border-2 border-foreground rotate-12 group-hover:rotate-0 transition-transform duration-500" />
+                <div className="absolute -inset-1 border-2 border-primary -rotate-6 group-hover:rotate-0 transition-transform duration-500" />
+                <div className="relative w-full h-full ink-sketch bg-card overflow-hidden">
+                  <Image
+                    src="/images/logo_zz_escher.jpg"
+                    alt="ZZ Escher Logo"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-3xl font-serif text-foreground tracking-tighter uppercase leading-none">Zac Zadell</span>
