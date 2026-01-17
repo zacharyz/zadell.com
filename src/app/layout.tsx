@@ -1,4 +1,4 @@
-import { Playfair_Display, Itim, Inter } from "next/font/google";
+import { Playfair_Display, Itim, EB_Garamond, Inter } from "next/font/google";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,6 +7,12 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: '--font-inter',
+});
+
+const garamond = EB_Garamond({
+  subsets: ["latin"],
+  variable: '--font-garamond',
+  display: 'swap',
 });
 
 const playfair = Playfair_Display({ 
@@ -34,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${itim.variable} ${inter.variable} font-sans bg-background text-foreground transition-colors duration-300`}
+        className={`${playfair.variable} ${itim.variable} ${inter.variable} ${garamond.variable} font-sans bg-background text-foreground transition-colors duration-300`}
       >
         <div dangerouslySetInnerHTML={{ __html: `
           <svg style="display: none;">

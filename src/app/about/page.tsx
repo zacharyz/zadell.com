@@ -15,10 +15,10 @@ export default function About() {
 
         {/* Bio Section */}
         <div className="grid md:grid-cols-3 gap-12 mb-24">
-          <div className="md:col-span-2 space-y-8 text-xl leading-relaxed">
+          <div className="md:col-span-2 space-y-8 text-lg leading-relaxed font-sans">
             <p>
               Hello! I&apos;m{" "}
-              <span className="font-serif font-bold italic text-primary text-2xl">
+              <span className="font-serif font-bold italic text-primary text-xl">
                 Zac Zadell
               </span>
               , a software engineer and digital solutions consultant based in
@@ -60,7 +60,7 @@ export default function About() {
               About the <br />
               <span className="text-primary italic">Strange Loop</span>
             </h2>
-            <p className="text-2xl font-serif italic opacity-70 leading-tight">
+            <p className="text-xl font-sans text-foreground max-w-2xl">
               "I wonder if I've been changed in the night? Let me think: was I the same when I got up this morning?"
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function About() {
           <h2 className="text-4xl font-serif font-bold mb-8 uppercase tracking-widest italic border-b-2 border-background/20 pb-4">
             The Creative Philosophy
           </h2>
-          <div className="space-y-6 text-xl leading-relaxed">
+          <div className="space-y-6 text-lg leading-relaxed font-sans text-background">
             <p>
               In an age of AI-driven precision and the silent approach of AGI, I believe we crave the <strong>tactile imperfection</strong> of the human touch. This digital space is a deliberate return to the "analog" soul of computing—a fusion of rigorous code and the woodcut whimsy of a simpler era.
             </p>

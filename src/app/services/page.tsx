@@ -52,7 +52,7 @@ export default function Services() {
             The Laboratory <br />
             <span className="text-primary italic">of Logic</span>
           </h1>
-          <p className="text-2xl font-serif italic opacity-70 max-w-2xl mx-auto">
+          <p className="text-xl font-sans text-foreground max-w-2xl mx-auto">
             "Everything is a strange loop. My services are the tools I use to navigate the paradoxes of digital creation."
           </p>
           <div className="absolute -top-10 -left-10 text-9xl font-serif opacity-5 select-none pointer-events-none">
@@ -83,7 +83,7 @@ export default function Services() {
                 <h3 className="text-4xl font-serif font-black mb-6 tracking-tighter italic">
                   {service.title}
                 </h3>
-                <p className="text-xl text-foreground/80 mb-8 leading-relaxed font-sans">
+                <p className="text-lg text-foreground mb-8 leading-relaxed font-sans">
                   {service.description}
                 </p>
                 
@@ -108,7 +108,7 @@ export default function Services() {
           <h2 className="text-5xl font-serif font-bold mb-8 italic uppercase tracking-tighter">
             Begin the Experiment
           </h2>
-          <p className="text-2xl mb-12 opacity-80 max-w-2xl mx-auto font-serif italic">
+          <p className="text-xl mb-12 text-foreground max-w-2xl mx-auto font-sans">
             Ready to collaborate on a digital artifact that defies expectation? Let&apos;s enter the blueprint together.
           </p>
           <Link

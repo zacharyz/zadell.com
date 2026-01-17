@@ -77,7 +77,7 @@ export default function Home() {
                 Curiouser & <br />
                 <span className="text-primary italic">Curiouser</span>
               </h1>
-              <p className="text-2xl md:text-3xl text-muted-foreground mb-12 font-serif max-w-xl italic">
+              <p className="text-2xl md:text-3xl text-foreground font-sans mb-12 max-w-xl">
                 &quot;I wonder if I&apos;ve been changed in the night? Let me think: was I the same when I got up this morning?&quot;
               </p>
               <div className="flex flex-wrap gap-6">
@@ -126,7 +126,7 @@ export default function Home() {
               >
                 <div className="text-4xl mb-6 font-serif opacity-20 group-hover:opacity-100 transition-opacity">0{index + 1}</div>
                 <h3 className="text-3xl mb-4 font-serif italic">{highlight.title}</h3>
-                <p className="text-xl leading-relaxed opacity-80 group-hover:opacity-100">
+                <p className="text-lg leading-relaxed text-foreground font-sans">
                   {highlight.description}
                 </p>
               </div>
