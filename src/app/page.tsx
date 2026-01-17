@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
+  const { theme } = useTheme();
   const [showBlogLink, setShowBlogLink] = useState(false);
 
   useEffect(() => {
@@ -98,7 +100,7 @@ export default function Home() {
                <div className="absolute -inset-4 border-4 border-primary -rotate-3 group-hover:rotate-0 transition-transform duration-500" />
                <div className="relative aspect-square overflow-hidden ink-sketch bg-card">
                    <Image
-                    src="/images/logo_zz_escher.jpg"
+                    src={theme === "dark" ? "/images/logo_zz_escher_dark.jpg" : "/images/logo_zz_escher.jpg"}
                     alt="ZZ Escher Branding - The Strange Loop"
                     fill
                     className="object-contain hover:scale-110 transition-all duration-700 p-8"

@@ -66,7 +66,7 @@ export default function Navbar() {
                 <div className="absolute -inset-1 border-2 border-primary -rotate-6 group-hover:rotate-0 transition-transform duration-500" />
                 <div className="relative w-full h-full ink-sketch bg-card overflow-hidden">
                   <Image
-                    src="/images/logo_zz_escher.jpg"
+                    src={theme === "dark" ? "/images/logo_zz_escher_dark.jpg" : "/images/logo_zz_escher.jpg"}
                     alt="ZZ Escher Logo"
                     fill
                     className="object-cover scale-150 group-hover:scale-175 transition-transform duration-500"

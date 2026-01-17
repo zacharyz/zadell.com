@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function About() {
+  const { theme } = useTheme();
   return (
     <div className="pt-40 px-4 bg-background strange-loop min-h-screen">
       <div className="max-w-4xl mx-auto py-12 relative z-10">
@@ -45,7 +49,7 @@ export default function About() {
         <div className="flex flex-col md:flex-row items-center gap-12 mb-12 bg-card ink-sketch p-12">
           <div className="relative w-64 h-64 flex-shrink-0 ink-sketch p-2 bg-card">
             <Image
-              src="/images/logo_zz_escher.jpg"
+              src={theme === "dark" ? "/images/logo_zz_escher_dark.jpg" : "/images/logo_zz_escher.jpg"}
               alt="ZZ Escher Logo"
               fill
               className="object-cover"
