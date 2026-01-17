@@ -97,11 +97,11 @@ export default function Home() {
                <div className="absolute -inset-4 border-4 border-foreground rotate-6 group-hover:rotate-0 transition-transform duration-500" />
                <div className="absolute -inset-4 border-4 border-primary -rotate-3 group-hover:rotate-0 transition-transform duration-500" />
                <div className="relative aspect-square overflow-hidden ink-sketch bg-card">
-                  <Image
-                    src="/images/profile_zac_v2.jpg"
-                    alt="Zac Zadell - Through the Looking Glass"
+                   <Image
+                    src="/images/logo_zz_escher.jpg"
+                    alt="ZZ Escher Branding - The Strange Loop"
                     fill
-                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    className="object-contain hover:scale-110 transition-all duration-700 p-8"
                     priority
                   />
                </div>
