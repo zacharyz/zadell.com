@@ -34,6 +34,14 @@ export default function Services() {
       symbol: "∞",
       technologies: ["Penetration Testing", "Optimization", "Code Audit"],
     },
+    {
+      title: "The Vibe Transmutation",
+      subtitle: "Prototype to Production Sovereignty",
+      description: "Taking the 'vibe-coded' artifacts of early experimentation and hardening them for the real world. I move AI-assisted prototypes beyond the dream of creation into stable, sovereign production environments.",
+      marginalia: "Vibes are the dream; code is the waking reality.",
+      symbol: "Φ",
+      technologies: ["Production Hardening", "AI Code Refinement", "Refactoring", "Scaling"],
+    },
   ];
 
   return (
