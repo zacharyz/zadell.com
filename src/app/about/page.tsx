@@ -47,12 +47,12 @@ export default function About() {
 
         {/* Branding Section */}
         <div className="flex flex-col md:flex-row items-center gap-12 mb-12 bg-card ink-sketch p-12">
-          <div className="relative w-64 h-64 flex-shrink-0 ink-sketch p-2 bg-card">
+          <div className="relative w-64 h-64 flex-shrink-0 ink-sketch p-2 bg-card overflow-hidden">
             <Image
               src={theme === "dark" ? "/images/logo_zz_escher_dark.jpg" : "/images/logo_zz_escher.jpg"}
               alt="ZZ Escher Logo"
               fill
-              className="object-cover"
+              className="object-cover object-center scale-125 hover:scale-135 transition-all duration-700"
             />
           </div>
           <div>

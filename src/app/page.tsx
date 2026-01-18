@@ -103,7 +103,7 @@ export default function Home() {
                     src={theme === "dark" ? "/images/logo_zz_escher_dark.jpg" : "/images/logo_zz_escher.jpg"}
                     alt="ZZ Escher Branding - The Strange Loop"
                     fill
-                    className="object-cover hover:scale-110 transition-all duration-700"
+                    className="object-cover scale-125 hover:scale-135 transition-all duration-700"
                     priority
                   />
                   </div>
