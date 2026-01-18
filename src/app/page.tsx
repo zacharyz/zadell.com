@@ -49,9 +49,9 @@ export default function Home() {
 
   const highlights = [
     {
-      title: "Engineering Since 2009",
+      title: "Engineering Since 2002",
       description:
-        "From the early web to the age of AI, I've spent over 15 years building resilient, scalable systems that stand the test of time.",
+        "From the early web to the age of AI, I've spent over 20 years building resilient, scalable systems that stand the test of time.",
     },
     {
       title: "Principal Leadership",
