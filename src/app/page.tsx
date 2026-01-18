@@ -98,15 +98,15 @@ export default function Home() {
             <div className="hidden lg:block relative group">
                <div className="absolute -inset-4 border-4 border-foreground rotate-6 group-hover:rotate-0 transition-transform duration-500" />
                <div className="absolute -inset-4 border-4 border-primary -rotate-3 group-hover:rotate-0 transition-transform duration-500" />
-               <div className="relative aspect-square overflow-hidden ink-sketch bg-card">
+                  <div className="relative aspect-square overflow-hidden ink-sketch bg-card">
                    <Image
                     src={theme === "dark" ? "/images/logo_zz_escher_dark.jpg" : "/images/logo_zz_escher.jpg"}
                     alt="ZZ Escher Branding - The Strange Loop"
                     fill
-                    className="object-contain hover:scale-110 transition-all duration-700 p-8"
+                    className="object-cover hover:scale-110 transition-all duration-700"
                     priority
                   />
-               </div>
+                  </div>
             </div>
           </div>
         </div>
