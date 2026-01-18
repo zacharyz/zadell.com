@@ -93,19 +93,64 @@ const projects: Project[] = [
     icon: <SiAstro className="w-16 h-16 text-primary" />,
   },
   {
-    title: "Precision Calculator",
-    themeTitle: "The Biometric Audit",
+    title: "Crypto Exchange Architecture",
+    themeTitle: "The Immutable Exchange",
     description:
-      "Translating physiological formulas into reactive logic. A rigorous implementation of body composition algorithms, ensuring type safety and calculation accuracy across dual-unit systems.",
+      "Lead frontend architecture for a top-tier cryptocurrency exchange. Orchestrated high-frequency WebSocket state management, real-time financial visualization, and bank-grade security protocols for millions of daily active users.",
     technologies: [
-      "React / TypeScript",
-      "Algorithmic Logic",
-      "Type Safety",
-      "State Management",
+      "React / Redux",
+      "WebSockets",
+      "D3.js Visualization",
+      "Cryptography",
     ],
-    imageUrl: "/health-calc.jpg",
-    link: "/experiments/health-calculator",
+    imageUrl: "/crypto.jpg",
+    link: undefined,
+    icon: <SiNextdotjs className="w-16 h-16 text-primary" />,
+  },
+  {
+    title: "Multi-Cloud Infrastructure",
+    themeTitle: "The Proto-Container Cloud",
+    description:
+      "Engineered an early multi-cloud deployment platform in the pre-Docker era. Spearheaded a universal add-on system that bridged proprietary cloud APIs with 3rd-party SaaS integrations, laying the groundwork for modern orchestration.",
+    technologies: [
+      "Distributed Systems",
+      "Cloud Orchestration",
+      "Systems Architecture",
+      "API Design",
+    ],
+    imageUrl: "/cloud.jpg",
+    link: undefined,
+    icon: <SiPython className="w-16 h-16 text-primary" />,
+  },
+  {
+    title: "Xbox 360 Game Engine",
+    themeTitle: "The Reality Engine",
+    description:
+      "Developed a custom high-performance game engine for Xbox 360 from the metal up. Implemented advanced HLSL shaders, rigid body physics simulation, and particle systems within strictly constrained console memory limits.",
+    technologies: [
+      "C# / .NET",
+      "HLSL Shaders",
+      "Physics Mathematics",
+      "Memory Optimization",
+    ],
+    imageUrl: "/engine.jpg",
+    link: undefined,
     icon: <SiReact className="w-16 h-16 text-primary" />,
+  },
+  {
+    title: "Fintech Platform",
+    themeTitle: "The Commerce Core",
+    description:
+      "Spearheaded the creation of a secure e-commerce platform for a major fintech entity. Designed the transactional core, payment gateway integrations, and PCI-compliant data flows handling substantial monetary volume.",
+    technologies: [
+      "Enterprise Architecture",
+      "Payment Gateways",
+      "PCI Compliance",
+      "High Availability",
+    ],
+    imageUrl: "/fintech.jpg",
+    link: undefined,
+    icon: <SiPrisma className="w-16 h-16 text-primary" />,
   },
 ];
 
@@ -139,7 +184,7 @@ export default function Portfolio() {
             >
                {/* Background Glyph */}
                <div className="absolute -bottom-12 -right-12 opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform rotate-12 scale-150">
-                  {React.cloneElement(project.icon, { className: "w-64 h-64 text-foreground" })}
+                  {React.cloneElement(project.icon as React.ReactElement<{ className: string }>, { className: "w-64 h-64 text-foreground" })}
                </div>
 
               <div className="relative z-10 flex flex-col h-full">
