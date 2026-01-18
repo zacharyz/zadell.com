@@ -49,18 +49,18 @@ export default function Home() {
 
   const highlights = [
     {
-      title: "10+ Years Experience",
+      title: "Engineering Since 2009",
       description:
-        "Building scalable web applications and leading development teams",
+        "From the early web to the age of AI, I've spent over 15 years building resilient, scalable systems that stand the test of time.",
     },
     {
-      title: "Full-Stack Developer",
-      description: "End-to-end solutions from frontend to backend architecture",
+      title: "Principal Leadership",
+      description: "Driving technical strategy, mentoring senior engineers, and defining the engineering culture for distributed teams.",
     },
     {
-      title: "Team Leadership",
+      title: "System Sovereignty",
       description:
-        "Mentoring developers and driving technical excellence across distributed teams",
+        "True full-stack mastery means owning the outcome. From distributed backend architectures to pixel-perfect UIs, nothing is black boed.",
     },
   ];
 
