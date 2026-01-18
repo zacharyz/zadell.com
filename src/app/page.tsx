@@ -171,8 +171,8 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-20 px-4 relative">
-        <div className="absolute top-0 right-1/4 w-20 h-20 rotate-45 opacity-40">
-           <Image src="/images/bee.png" alt="Bee" fill className="object-contain" />
+        <div className="absolute top-0 right-1/4 text-9xl font-serif opacity-5 rotate-12 select-none pointer-events-none text-foreground">
+          ♞
         </div>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl mb-6 text-foreground">
