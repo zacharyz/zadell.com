@@ -107,6 +107,34 @@ const projects: Project[] = [
     link: "/experiments/health-calculator",
     icon: <SiReact className="w-16 h-16 text-primary" />,
   },
+  {
+    title: "Fintech Ledger",
+    themeTitle: "The Sovereign Ledger",
+    description:
+      "A double-entry immutable ledger system designed for high-frequency trading environments. Implements event sourcing and CQRS patterns to ensure absolute data consistency and auditability at millisecond resolution.",
+    technologies: [
+      "Rust / WebAssembly",
+      "Event Sourcing",
+      "CQRS Pattern",
+      "Cryptography",
+    ],
+    imageUrl: "/ledger.jpg",
+    icon: <SiPrisma className="w-16 h-16 text-primary" />,
+  },
+  {
+    title: "Global CDN",
+    themeTitle: "The Edge Grid",
+    description:
+      "A custom content delivery network built on distributed edge workers. Orchestrates global cache invalidation and geo-routing logic to minimize latency for millions of concurrent users.",
+    technologies: [
+      "Go / Golang",
+      "Distributed Systems",
+      "Geo-Routing",
+      "Cache Strategy",
+    ],
+    imageUrl: "/cdn.jpg",
+    icon: <SiAstro className="w-16 h-16 text-primary" />,
+  },
 ];
 
 export default function Portfolio() {
