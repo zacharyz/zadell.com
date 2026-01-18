@@ -26,24 +26,24 @@ export default function Home() {
 
   const skills = [
     {
-      name: "Frontend",
-      items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      name: "Strategic Architecture",
+      items: ["System Design", "Event-Driven Arch", "Microservices", "Tech Strategy"],
       symbol: "Σ",
     },
     { 
-      name: "Backend", 
-      items: ["Node.js", "Python", "PostgreSQL", "Redis"],
+      name: "Full-Stack Engineering", 
+      items: ["Next.js", "TypeScript / Node", "React Server Components", "GraphQL Federation"],
       symbol: "λ",
     },
     { 
-      name: "Cloud & DevOps", 
-      items: ["AWS", "Docker", "CI/CD", "Terraform"],
-      symbol: "∞",
-    },
-    {
-      name: "AI & ML",
-      items: ["OpenAI", "LangChain", "TensorFlow", "PyTorch"],
+      name: "AI & Cognitive Systems",
+      items: ["RAG Pipelines", "Agentic Workflows", "LLM Integration", "Vector Search"],
       symbol: "Δ",
+    },
+    { 
+      name: "Cloud Sovereignty", 
+      items: ["AWS / Multi-Cloud", "Kubernetes / Docker", "Infrastructure as Code", "Zero Trust Security"],
+      symbol: "∞",
     },
   ];
 
