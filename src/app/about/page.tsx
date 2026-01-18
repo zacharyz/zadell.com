@@ -23,7 +23,7 @@ export default function About() {
               </span>
               , a software engineer and digital solutions consultant based in
               Portland, Oregon. My journey in technology began when I wrote my first lines of code at
-              age 8, eventually leading me to over 18 years of building systems for giants like Nike, Facebook, and Unity.
+              age 8, eventually leading me to over two decades of building systems for giants like Nike, Facebook, and Unity.
             </p>
             <p>
               Currently, as the founder of <strong>Zadell Consulting</strong>, I help businesses
