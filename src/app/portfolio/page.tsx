@@ -17,7 +17,7 @@ interface Project {
   technologies: string[];
   imageUrl: string;
   link?: string;
-  icon: React.ReactElement;
+  icon: React.ReactElement<{ className?: string }>;
 }
 
 const projects: Project[] = [
@@ -184,7 +184,7 @@ export default function Portfolio() {
             >
                {/* Background Glyph */}
                <div className="absolute -bottom-12 -right-12 opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform rotate-12 scale-150">
-                  {React.cloneElement(project.icon as React.ReactElement<{ className: string }>, { className: "w-64 h-64 text-foreground" })}
+                  {React.cloneElement(project.icon, { className: "w-64 h-64 text-foreground" })}
                </div>
 
               <div className="relative z-10 flex flex-col h-full">
