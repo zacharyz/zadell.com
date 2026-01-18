@@ -145,7 +145,7 @@ export default function Home() {
             {skills.map((category) => (
               <div
                 key={category.name}
-                className="p-8 border-2 border-background/20 hover:border-primary transition-colors flex flex-col justify-between"
+                className="p-8 border-2 border-background/20 hover:border-primary transition-colors flex flex-col justify-between relative group"
               >
                 <div>
                   <h3 className="text-2xl font-bold mb-8 text-primary font-serif">{category.name}</h3>
