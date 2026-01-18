@@ -39,10 +39,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-garamond)", "ui-serif", "serif"],
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
         serif: ["var(--font-playfair)", "ui-serif", "Georgia"],
+        prose: ["var(--font-garamond)", "ui-serif", "serif"],
         itim: ["var(--font-itim)", "cursive"],
-        inter: ["var(--font-inter)", "sans-serif"],
       },
       colors: {
         background: "hsl(var(--background))",
