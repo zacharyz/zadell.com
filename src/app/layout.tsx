@@ -13,6 +13,7 @@ const garamond = EB_Garamond({
   subsets: ["latin"],
   variable: '--font-garamond',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 });
 
 const playfair = Playfair_Display({ 

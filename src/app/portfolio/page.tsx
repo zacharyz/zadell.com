@@ -159,7 +159,7 @@ export default function Portfolio() {
     <div className="pt-40 px-4 bg-background strange-loop min-h-screen">
       <div className="max-w-7xl mx-auto py-16">
         <div className="mb-24 relative">
-          <h1 className="text-7xl font-serif font-black mb-8 tracking-tighter uppercase italic border-b-8 border-foreground inline-block">
+          <h1 className="text-7xl font-serif font-black mb-8 tracking-tighter uppercase italic border-b-8 border-foreground inline-block rough">
             The Gallery <br/>
             <span className="text-primary italic">of Impossible Works</span>
           </h1>
@@ -175,7 +175,7 @@ export default function Portfolio() {
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className={`group relative bg-card ink-sketch p-8 hover:-translate-y-2 transition-all duration-500 overflow-hidden ${
+              className={`group relative bg-paper ink-sketch p-8 hover:-translate-y-2 transition-all duration-500 overflow-hidden ${
                 project.link ? "cursor-pointer" : ""
               }`}
               onClick={() =>
@@ -197,7 +197,7 @@ export default function Portfolio() {
                     )}
                 </div>
 
-                <h3 className="text-3xl font-serif font-black mb-2 tracking-tighter italic">
+                <h3 className="text-3xl font-serif font-black mb-2 tracking-tighter italic rough">
                   {project.themeTitle}
                 </h3>
                 <div className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-bold">

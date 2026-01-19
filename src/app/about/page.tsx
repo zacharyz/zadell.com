@@ -9,13 +9,13 @@ export default function About() {
   return (
     <div className="pt-40 px-4 bg-background strange-loop min-h-screen">
       <div className="max-w-4xl mx-auto py-12 relative z-10">
-        <h1 className="text-7xl font-serif font-black mb-16 tracking-tighter uppercase italic leading-none border-b-8 border-foreground pb-4">
+        <h1 className="text-7xl font-serif font-black mb-16 tracking-tighter uppercase italic leading-none border-b-8 border-foreground pb-4 rough">
           The <span className="text-primary italic">Architect</span>
         </h1>
 
         {/* Bio Section */}
         <div className="grid md:grid-cols-3 gap-12 mb-24">
-          <div className="md:col-span-2 space-y-8 text-lg leading-relaxed font-prose">
+          <div className="md:col-span-2 space-y-8 text-lg leading-relaxed font-prose bg-paper p-8 ink-sketch">
             <p>
               Hello! I&apos;m{" "}
               <span className="font-serif font-bold italic text-primary text-xl">
@@ -31,8 +31,8 @@ export default function About() {
               solutions that don&apos;t just work—they resonate.
             </p>
           </div>
-          <div className="bg-card ink-sketch p-8 space-y-4 h-fit">
-            <h3 className="text-2xl font-serif font-bold italic uppercase border-b-2 border-primary pb-2">
+          <div className="bg-paper ink-sketch p-8 space-y-4 h-fit">
+            <h3 className="text-2xl font-serif font-bold italic uppercase border-b-2 border-primary pb-2 rough">
               The Arsenal
             </h3>
             <ul className="space-y-2 font-serif italic text-lg opacity-80">
@@ -46,8 +46,8 @@ export default function About() {
         </div>
 
         {/* Branding Section */}
-        <div className="flex flex-col md:flex-row items-center gap-12 mb-12 bg-card ink-sketch p-12">
-          <div className="relative w-64 h-64 flex-shrink-0 ink-sketch p-2 bg-card overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center gap-12 mb-12 bg-paper ink-sketch p-12">
+          <div className="relative w-64 h-64 flex-shrink-0 ink-sketch p-2 bg-paper overflow-hidden">
             <Image
               src={theme === "dark" ? "/images/logo_zz_escher_dark.jpg" : "/images/logo_zz_escher.jpg"}
               alt="ZZ Escher Logo"
@@ -56,7 +56,7 @@ export default function About() {
             />
           </div>
           <div>
-            <h2 className="text-5xl font-serif font-black mb-6 tracking-tighter uppercase italic leading-none">
+            <h2 className="text-5xl font-serif font-black mb-6 tracking-tighter uppercase italic leading-none rough">
               About the <br />
               <span className="text-primary italic">Strange Loop</span>
             </h2>
@@ -67,14 +67,14 @@ export default function About() {
         </div>
 
         {/* Philosophy Section */}
-        <section className="mb-24 bg-foreground text-background p-12 ink-sketch relative overflow-hidden">
+        <section className="mb-24 bg-foreground text-paper p-12 ink-sketch relative overflow-hidden">
           <div className="absolute top-4 right-4 text-9xl font-serif opacity-10 select-none">
             &phi;
           </div>
-          <h2 className="text-4xl font-serif font-bold mb-8 uppercase tracking-widest italic border-b-2 border-background/20 pb-4">
+          <h2 className="text-4xl font-serif font-bold mb-8 uppercase tracking-widest italic border-b-2 border-background/20 pb-4 rough">
             The Creative Philosophy
           </h2>
-          <div className="space-y-6 text-lg leading-relaxed font-prose text-background">
+          <div className="space-y-6 text-lg leading-relaxed font-prose text-paper">
             <p>
               In an age of AI-driven precision and the silent approach of AGI, I believe we crave the <strong>tactile imperfection</strong> of the human touch. This digital space is a deliberate return to the "analog" soul of computing—a fusion of rigorous code and the woodcut whimsy of a simpler era.
             </p>
@@ -91,7 +91,7 @@ export default function About() {
         <div className="text-center pt-8 border-t-4 border-foreground">
           <Link
             href="/contact"
-            className="inline-block bg-primary text-primary-foreground text-3xl font-serif font-bold italic px-12 py-6 ink-sketch hover:translate-x-1 hover:translate-y-1 transition-all uppercase tracking-tighter"
+            className="inline-block bg-primary text-primary-foreground text-3xl font-serif font-bold italic px-12 py-6 ink-sketch hover:translate-x-1 hover:translate-y-1 transition-all uppercase tracking-tighter rough"
           >
             Dispatch a Message
           </Link>

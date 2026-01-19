@@ -48,7 +48,7 @@ export default function Services() {
     <div className="pt-40 px-4 bg-background strange-loop min-h-screen">
       <div className="max-w-6xl mx-auto py-12 relative z-10">
         <div className="mb-20 text-center relative">
-          <h1 className="text-7xl font-serif font-black mb-6 tracking-tighter uppercase italic leading-none">
+          <h1 className="text-7xl font-serif font-black mb-6 tracking-tighter uppercase italic leading-none rough">
             The Laboratory <br />
             <span className="text-primary italic">of Logic</span>
           </h1>
@@ -64,7 +64,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group relative bg-card ink-sketch p-10 hover:-translate-y-2 transition-all duration-500 overflow-hidden"
+              className="group relative bg-paper ink-sketch p-10 hover:-translate-y-2 transition-all duration-500 overflow-hidden"
             >
               {/* Marginalia Annotation */}
               <div className="absolute top-4 right-4 text-sm font-serif italic text-primary opacity-60 group-hover:opacity-100 transition-opacity max-w-[120px] text-right pointer-events-none">
@@ -80,7 +80,7 @@ export default function Services() {
                 <div className="text-primary font-serif italic font-bold mb-2 tracking-widest uppercase text-sm">
                   {service.subtitle}
                 </div>
-                <h3 className="text-4xl font-serif font-black mb-6 tracking-tighter italic">
+                <h3 className="text-4xl font-serif font-black mb-6 tracking-tighter italic rough">
                   {service.title}
                 </h3>
                 <p className="text-lg text-foreground mb-8 leading-relaxed font-prose">
@@ -103,9 +103,9 @@ export default function Services() {
         </div>
 
         {/* Closing CTA */}
-        <div className="mt-24 text-center bg-foreground text-background p-16 ink-sketch relative overflow-hidden">
+        <div className="mt-24 text-center bg-foreground text-paper p-16 ink-sketch relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none chess-board" />
-          <h2 className="text-5xl font-serif font-bold mb-8 italic uppercase tracking-tighter">
+          <h2 className="text-5xl font-serif font-bold mb-8 italic uppercase tracking-tighter rough">
             Begin the Experiment
           </h2>
           <p className="text-xl mb-12 text-foreground max-w-2xl mx-auto font-prose">
@@ -113,7 +113,7 @@ export default function Services() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-primary text-primary-foreground text-3xl font-serif font-bold italic px-12 py-6 ink-sketch hover:translate-x-1 hover:translate-y-1 transition-all uppercase tracking-tighter"
+            className="inline-block bg-primary text-primary-foreground text-3xl font-serif font-bold italic px-12 py-6 ink-sketch hover:translate-x-1 hover:translate-y-1 transition-all uppercase tracking-tighter rough"
           >
             Dispatch a Raven
           </Link>

@@ -56,7 +56,7 @@ export default function Navbar() {
       : baseNavLinks;
 
   return (
-    <nav className="fixed w-full bg-background border-b-4 border-foreground z-50">
+    <nav className="fixed w-full bg-paper border-b-4 border-foreground z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           <div className="flex items-center gap-6">
@@ -97,9 +97,10 @@ export default function Navbar() {
             ))}
             <button
               onClick={toggleTheme}
-              className="p-3 ink-sketch bg-white hover:bg-black hover:text-white transition-colors rotate-45"
+              className="ml-4 p-2 text-foreground hover:text-primary transition-all duration-300 hover:rotate-12"
+              aria-label="Toggle theme"
             >
-              <div className="-rotate-45">
+              <div className="text-2xl">
                  {theme === "dark" ? "🌞" : "🌙"}
               </div>
             </button>
@@ -145,8 +146,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`${
                   pathname === link.href
-                    ? "text-blue-600 dark:text-blue-400"
-                    : "text-gray-700 dark:text-gray-300"
+                    ? "text-primary font-bold"
+                    : "text-foreground"
                 } block px-3 py-2 rounded-md text-base font-medium`}
                 onClick={() => setIsMenuOpen(false)}
               >

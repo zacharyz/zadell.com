@@ -71,9 +71,9 @@ export default function Home() {
         <div className="absolute inset-0 opacity-10 chess-board pointer-events-none" />
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="text-left">
+            <div className="text-left bg-paper ink-sketch p-12 relative z-20">
               <div className="mb-4 text-primary font-bold tracking-widest text-sm uppercase">Entering the Strange Loop</div>
-              <h1 className="text-6xl md:text-8xl mb-8 text-foreground font-serif leading-none tracking-tighter">
+              <h1 className="text-6xl md:text-8xl mb-8 text-foreground font-serif leading-none tracking-tighter rough">
                 Curiouser & <br />
                 <span className="text-primary italic">Curiouser</span>
               </h1>
@@ -83,13 +83,13 @@ export default function Home() {
               <div className="flex flex-wrap gap-6">
                 <a
                   href="/contact"
-                  className="bg-primary text-primary-foreground px-10 py-5 text-xl rounded-none hover:translate-x-1 hover:translate-y-1 transition-all ink-sketch font-bold"
+                  className="bg-primary text-primary-foreground px-10 py-5 text-xl rounded-none hover:translate-x-1 hover:translate-y-1 transition-all ink-sketch font-bold rough"
                 >
                   Start a Project
                 </a>
                 <a
                   href="/portfolio"
-                  className="bg-background text-foreground px-10 py-5 text-xl rounded-none hover:-translate-x-1 hover:-translate-y-1 transition-all ink-sketch font-bold"
+                  className="bg-background text-foreground px-10 py-5 text-xl rounded-none hover:-translate-x-1 hover:-translate-y-1 transition-all ink-sketch font-bold rough"
                 >
                   View Work
                 </a>
@@ -120,9 +120,7 @@ export default function Home() {
             {highlights.map((highlight, index) => (
               <div
                 key={highlight.title}
-                className={`p-12 border-2 border-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500 group ${
-                  index % 2 === 0 ? 'bg-card' : 'bg-muted/20'
-                }`}
+                className={`p-12 border-2 border-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-500 group bg-paper`}
               >
                 <div className="text-4xl mb-6 font-serif opacity-20 group-hover:opacity-100 transition-opacity">0{index + 1}</div>
                 <h3 className="text-3xl mb-4 font-serif italic">{highlight.title}</h3>
@@ -136,9 +134,9 @@ export default function Home() {
       </section>
 
       {/* Skills Section - The Logic of Wonderland */}
-      <section className="py-32 px-4 bg-foreground text-background relative">
+      <section className="py-32 px-4 bg-foreground text-paper relative">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl mb-20 text-center font-serif italic tracking-widest uppercase">
+          <h2 className="text-5xl mb-20 text-center font-serif italic tracking-widest uppercase rough">
             The Strange Loop of Skills
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -184,7 +182,7 @@ export default function Home() {
           </p>
           <a
             href="/contact"
-            className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:rotate-3 transition-transform font-bold rough-border shadow-lg"
+            className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:rotate-3 transition-transform font-bold rough-border shadow-lg rough"
           >
             Get in Touch
           </a>

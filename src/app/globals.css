@@ -3,7 +3,8 @@
 @tailwind utilities;
 @layer base {
   :root {
-    --background: 40 20% 98%; /* Antique Book Page */
+    --background: 54 37% 89%; /* User preferred beige #EDEBD8 */
+    --paper: 40 20% 98%; /* Original Antique Book Page */
     --foreground: 0 0% 10%; /* Stark Ink */
     --card: 40 20% 100%;
     --card-foreground: 0 0% 10%;
@@ -27,6 +28,7 @@
 
   .dark {
     --background: 240 10% 4%; /* Inky Black */
+    --paper: 240 10% 8%; /* Slightly lighter than background for content */
     --foreground: 40 20% 98%; /* Ghostly White */
     --card: 240 10% 8%;
     --card-foreground: 40 20% 98%;
@@ -50,6 +52,9 @@
   .ink-sketch {
     border: 2px solid hsl(var(--foreground));
     box-shadow: 4px 4px 0px hsl(var(--foreground));
+  }
+
+  .rough {
     filter: url(#rough-edge);
   }
 /* ... other patterns ... */

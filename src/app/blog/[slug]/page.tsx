@@ -29,7 +29,7 @@ export default async function BlogPost({ params }: PageProps) {
   return (
     <main className="min-h-screen pt-40">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100 rough">
           {post.title}
         </h1>
         <div className="text-gray-600 dark:text-gray-400 mb-8">{post.date}</div>
@@ -46,7 +46,8 @@ export default async function BlogPost({ params }: PageProps) {
           [&_pre]:p-4 [&_pre]:rounded-lg
           [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded
           [&_code]:bg-gray-100 [&_code]:dark:bg-gray-800
-          [&_pre_code]:p-0 [&_pre_code]:bg-transparent [&_pre_code]:dark:bg-transparent"
+          [&_pre_code]:p-0 [&_pre_code]:bg-transparent [&_pre_code]:dark:bg-transparent
+          bg-paper ink-sketch p-8 rounded-lg font-sans"
         >
           <Markdown>{contentWithoutTitle}</Markdown>
         </article>
