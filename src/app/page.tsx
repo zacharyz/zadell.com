@@ -60,7 +60,7 @@ export default function Home() {
     {
       title: "System Sovereignty",
       description:
-        "True full-stack mastery means owning the outcome. From distributed backend architectures to pixel-perfect UIs, nothing is black boed.",
+        "True full-stack mastery means owning the outcome. From distributed backend architectures to pixel-perfect UIs, nothing is black boxed.",
     },
   ];
 
