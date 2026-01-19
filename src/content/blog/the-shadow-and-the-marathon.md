@@ -36,6 +36,6 @@ But you cannot `git reset --hard` a human life. You can only refactor. You ident
 My younger self could sprint faster. But he didn't know where he was going.
 I may be slower now. The recovery takes longer. The shadow of "what could have been" is always there, running just a step behind me. But I have something he didn't: **Trajectory**.
 
-I don't run to outpace my past. I run to carry it with me. The obstacles are not in the way; they *is* the way. The growth isn't in the finish line; it's in the quiet, painful discipline of the journey itself.
+I don't run to outpace my past. I run to carry it with me. The obstacles are not in the way; they *are* the way. The growth isn't in the finish line; it's in the quiet, painful discipline of the journey itself.
 
 We are not done compiling yet.
