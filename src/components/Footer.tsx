@@ -42,6 +42,22 @@ export default function Footer() {
         </svg>
       ),
     },
+    {
+      name: "threshold.fit",
+      url: "https://threshold.fit",
+      icon: (
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+          aria-hidden="true"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -49,28 +65,24 @@ export default function Footer() {
       <div className="absolute inset-0 opacity-5 chess-board pointer-events-none" />
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center space-y-10">
-          <div className="text-4xl font-serif italic tracking-[0.5em] text-foreground/20">A Strange Loop</div>
           <div className="flex space-x-12">
             {socialLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.url}
-                className="group relative"
+                className="group relative flex items-center gap-2 text-foreground hover:text-primary transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="sr-only">{link.name}</span>
-                <div className="text-2xl font-serif hover:scale-150 transition-transform duration-500 hover:text-primary">
-                  {link.name === "GitHub" ? "∫" : link.name === "LinkedIn" ? "λ" : "π"}
+                <div className="hover:scale-110 transition-transform duration-300">
+                  {link.icon}
                 </div>
-                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                  {link.name}
-                </div>
+                <span className="text-sm font-serif tracking-wide">{link.name}</span>
               </Link>
             ))}
           </div>
           <div className="text-center text-sm font-serif tracking-[0.2em] uppercase opacity-40">
-            <p>© {currentYear} Zac Zadell &bull; Through the Looking Glass</p>
+            <p>&copy; {currentYear} Zac Zadell</p>
           </div>
         </div>
       </div>

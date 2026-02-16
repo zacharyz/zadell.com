@@ -28,9 +28,9 @@ const itim = Itim({
 });
 
 export const metadata = {
-  title: "Zac Zadell | Full-Stack Developer & AI Engineer",
+  title: "Zac Zadell | Engineer, Consultant, Builder",
   description:
-    "Building intelligent web applications and AI solutions. Explore my projects, insights, and development expertise.",
+    "Full-stack engineer and consultant with 20+ years shipping at Nike, Facebook, and Unity. Currently building threshold.fit. Available for consulting.",
 };
 
 export default function RootLayout({

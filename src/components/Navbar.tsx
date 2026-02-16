@@ -75,7 +75,7 @@ export default function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-3xl font-serif text-foreground tracking-tighter uppercase leading-none">Zac Zadell</span>
-                <span className="text-xs font-serif italic opacity-50 tracking-[0.2em] uppercase">The Strange Loop</span>
+                <span className="text-xs font-serif italic opacity-50 tracking-[0.2em] uppercase">Engineer & Consultant</span>
               </div>
             </Link>
           </div>

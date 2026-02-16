@@ -1,97 +1,79 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
   const { theme } = useTheme();
-  const [showBlogLink, setShowBlogLink] = useState(false);
-
-  useEffect(() => {
-    async function checkBlogPosts() {
-      try {
-        const response = await fetch("/api/blog?check=has-posts");
-        const data = await response.json();
-        setShowBlogLink(data.hasPosts);
-      } catch (error) {
-        console.error("Error checking blog posts:", error);
-        setShowBlogLink(false);
-      }
-    }
-
-    checkBlogPosts();
-  }, []);
 
   const skills = [
     {
-      name: "Strategic Architecture",
+      name: "Architecture & Strategy",
       items: ["System Design", "Event-Driven Arch", "Microservices", "Tech Strategy"],
-      symbol: "Σ",
     },
-    { 
-      name: "Full-Stack Engineering", 
+    {
+      name: "Full-Stack Engineering",
       items: ["Next.js", "TypeScript / Node", "React Server Components", "GraphQL Federation"],
-      symbol: "λ",
     },
-    { 
-      name: "AI & Cognitive Systems",
+    {
+      name: "AI Integration",
       items: ["RAG Pipelines", "Agentic Workflows", "LLM Integration", "Vector Search"],
-      symbol: "Δ",
     },
-    { 
-      name: "Cloud Sovereignty", 
+    {
+      name: "Cloud & Infrastructure",
       items: ["AWS / Multi-Cloud", "Kubernetes / Docker", "Infrastructure as Code", "Zero Trust Security"],
-      symbol: "∞",
     },
   ];
 
   const highlights = [
     {
-      title: "Two Decades of Craftsmanship",
+      title: "Building threshold.fit",
       description:
-        "From the early web to the age of AI, I've spent over two decades building resilient, scalable systems that stand the test of time.",
+        "Currently building a fitness platform that helps people train smarter. It's the product I wanted to exist, so I'm making it.",
+      link: "https://threshold.fit",
     },
     {
-      title: "Principal Leadership",
-      description: "Driving technical strategy, mentoring senior engineers, and defining the engineering culture for distributed teams.",
+      title: "20+ Years Shipping",
+      description: "Nike, Facebook, Unity, and dozens of startups. I've built systems at every scale, from scrappy MVPs to platforms serving millions.",
     },
     {
-      title: "System Sovereignty",
+      title: "Available for Consulting",
       description:
-        "True full-stack mastery means owning the outcome. From distributed backend architectures to pixel-perfect UIs, nothing is black boxed.",
+        "Architecture, AI integration, full-stack delivery. I help teams build the right thing the right way — then I help them ship it.",
+      link: "/services",
     },
   ];
 
   return (
     <div className="pt-16">
-      {/* Hero Section - Down the Rabbit Hole */}
+      {/* Hero Section */}
       <section className="py-24 px-4 bg-background relative overflow-hidden flex items-center min-h-[90vh] strange-loop">
         <div className="absolute inset-0 opacity-10 chess-board pointer-events-none" />
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-left bg-paper ink-sketch p-12 relative z-20">
-              <div className="mb-4 text-primary font-bold tracking-widest text-sm uppercase">Entering the Strange Loop</div>
               <h1 className="text-6xl md:text-8xl mb-8 text-foreground font-serif leading-none tracking-tighter rough">
-                Curiouser & <br />
-                <span className="text-primary italic">Curiouser</span>
+                I&apos;m Zac.<br />
+                <span className="text-primary italic">I build things.</span>
               </h1>
-              <p className="text-2xl md:text-3xl text-foreground font-prose mb-12 max-w-xl">
-                &quot;I wonder if I&apos;ve been changed in the night? Let me think: was I the same when I got up this morning?&quot;
+              <p className="text-xl md:text-2xl text-foreground font-prose mb-12 max-w-xl">
+                Full-stack engineer and consultant with 20+ years of experience. Currently building{" "}
+                <a href="https://threshold.fit" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:opacity-80">threshold.fit</a>
+                {" "}and helping teams ship through{" "}
+                <span className="font-semibold">Zadell Consulting</span>.
               </p>
               <div className="flex flex-wrap gap-6">
                 <a
                   href="/contact"
                   className="bg-primary text-primary-foreground px-10 py-5 text-xl rounded-none hover:translate-x-1 hover:translate-y-1 transition-all ink-sketch font-bold rough"
                 >
-                  Start a Project
+                  Let&apos;s Talk
                 </a>
                 <a
                   href="/portfolio"
                   className="bg-background text-foreground px-10 py-5 text-xl rounded-none hover:-translate-x-1 hover:-translate-y-1 transition-all ink-sketch font-bold rough"
                 >
-                  View Work
+                  See My Work
                 </a>
               </div>
             </div>
@@ -101,7 +83,7 @@ export default function Home() {
                   <div className="relative aspect-square overflow-hidden ink-sketch bg-card">
                    <Image
                     src={theme === "dark" ? "/images/logo_zz_escher_dark.jpg" : "/images/logo_zz_escher.jpg"}
-                    alt="ZZ Escher Branding - The Strange Loop"
+                    alt="Zac Zadell"
                     fill
                     className="object-cover scale-125 hover:scale-135 transition-all duration-700"
                     priority
@@ -112,7 +94,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Highlights Section - Chess Board Theme */}
+      {/* Highlights Section */}
       <section className="py-32 px-4 border-y-4 border-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 chess-board" />
         <div className="max-w-7xl mx-auto relative z-10">
@@ -127,17 +109,27 @@ export default function Home() {
                 <p className="text-lg leading-relaxed text-foreground font-prose">
                   {highlight.description}
                 </p>
+                {highlight.link && (
+                  <a
+                    href={highlight.link}
+                    target={highlight.link.startsWith("http") ? "_blank" : undefined}
+                    rel={highlight.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="inline-block mt-4 text-sm font-serif italic border-b border-current opacity-70 group-hover:opacity-100 transition-opacity"
+                  >
+                    Learn more &rarr;
+                  </a>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Skills Section - The Logic of Wonderland */}
+      {/* Skills Section */}
       <section className="py-32 px-4 bg-foreground text-paper relative">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl mb-20 text-center font-serif italic tracking-widest uppercase rough">
-            The Strange Loop of Skills
+            What I Work With
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {skills.map((category) => (
@@ -158,9 +150,6 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                <div className="absolute bottom-4 right-4 text-7xl text-background/15 font-serif select-none pointer-events-none group-hover:text-primary/20 transition-colors">
-                  {category.symbol}
-                </div>
               </div>
             ))}
           </div>
@@ -169,16 +158,12 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-20 px-4 relative">
-        <div className="absolute top-0 right-1/4 text-9xl font-serif opacity-5 rotate-12 select-none pointer-events-none text-foreground">
-          ♞
-        </div>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl mb-6 text-foreground">
-            Ready to Build Something Amazing?
+            Have a project in mind?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Let&apos;s collaborate to bring your vision to life with
-            cutting-edge technology.
+            I&apos;m taking on select consulting engagements. Let&apos;s talk about what you&apos;re building.
           </p>
           <a
             href="/contact"

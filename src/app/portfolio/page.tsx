@@ -4,7 +4,6 @@ import React from "react";
 import {
   SiPython,
   SiNextdotjs,
-  SiTypescript,
   SiReact,
   SiAstro,
   SiPrisma,
@@ -12,20 +11,34 @@ import {
 
 interface Project {
   title: string;
-  themeTitle: string;
   description: string;
   technologies: string[];
   imageUrl: string;
   link?: string;
   icon: React.ReactElement<{ className?: string }>;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
   {
-    title: "ModelChat",
-    themeTitle: "The Neural Interface",
+    title: "threshold.fit",
     description:
-      "A unified cognitive interface orchestrating communication across distinct LLM providers. Built on a streaming architecture to handle real-time token generation, this system abstracts model complexity behind a standardized API layer.",
+      "A fitness platform I'm building from scratch to help people train smarter. Personalized programming, progress tracking, and AI-powered coaching — the product I wanted to exist.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "AI Integration",
+      "Full-Stack",
+    ],
+    imageUrl: "/modelchat.jpg",
+    link: "https://threshold.fit",
+    icon: <SiNextdotjs className="w-16 h-16 text-primary" />,
+    featured: true,
+  },
+  {
+    title: "ModelChat",
+    description:
+      "A chat app that lets you talk to any AI model through one interface. Built on a streaming architecture with real-time token generation and a unified API layer across providers.",
     technologies: [
       "Next.js 15",
       "Streaming Architecture",
@@ -38,9 +51,8 @@ const projects: Project[] = [
   },
   {
     title: "Workflow Summarization Engine",
-    themeTitle: "The Cognitive Pipeline",
     description:
-      "A distributed document analysis system designed for high-throughput legal and medical processing. Implements parallelized LLM chains to deconstruct, analyze, and synthesize unlimited context windows into structured intelligence.",
+      "A document analysis system for high-throughput legal and medical processing. Uses parallelized LLM chains to break down, analyze, and synthesize large documents into structured summaries.",
     technologies: [
       "Python / LangChain",
       "Map-Reduce Patterns",
@@ -52,9 +64,8 @@ const projects: Project[] = [
   },
   {
     title: "Document Generation Library",
-    themeTitle: "The Fabrication Engine",
     description:
-      "An enterprise-grade document synthesis library decoupling data logic from presentation. Features a custom template engine capable of rendering complex, data-driven reports into pixel-perfect PDF and DOCX artifacts.",
+      "An enterprise document synthesis library that separates data logic from presentation. Custom template engine that renders data-driven reports into pixel-perfect PDFs and DOCX files.",
     technologies: [
       "Python / Jinja2",
       "Headless Rendering",
@@ -66,9 +77,8 @@ const projects: Project[] = [
   },
   {
     title: "Discuss Forum",
-    themeTitle: "The Dialectic Forum",
     description:
-      "A study in relational data architecture and optimistic UI patterns. This platform implements recursive threading models and real-time state synchronization to facilitate complex, multi-branching discourse.",
+      "A threaded discussion platform with recursive comment trees and real-time state sync. Built to explore relational data architecture and optimistic UI patterns.",
     technologies: [
       "Next.js 14 / Server Actions",
       "Recursive Queries",
@@ -80,9 +90,8 @@ const projects: Project[] = [
   },
   {
     title: "AstroJS Site",
-    themeTitle: "The Static Monolith",
     description:
-      "Experiments in the 'Islands Architecture' pattern. By selectively hydrating interactive components within a sea of static HTML, this project achieves near-zero Time to Interactive (TTI) and maximum SEO authority.",
+      "An experiment with the Islands Architecture pattern — selectively hydrating interactive components within static HTML to achieve near-zero Time to Interactive and strong SEO.",
     technologies: [
       "Astro.js",
       "Islands Architecture",
@@ -94,9 +103,8 @@ const projects: Project[] = [
   },
   {
     title: "Crypto Exchange Architecture",
-    themeTitle: "The Immutable Exchange",
     description:
-      "Lead frontend architecture for a top-tier cryptocurrency exchange. Orchestrated high-frequency WebSocket state management, real-time financial visualization, and bank-grade security protocols for millions of daily active users.",
+      "Lead frontend architecture for a top-tier cryptocurrency exchange. High-frequency WebSocket state management, real-time financial visualization, and bank-grade security for millions of daily users.",
     technologies: [
       "React / Redux",
       "WebSockets",
@@ -109,9 +117,8 @@ const projects: Project[] = [
   },
   {
     title: "Multi-Cloud Infrastructure",
-    themeTitle: "The Proto-Container Cloud",
     description:
-      "Engineered an early multi-cloud deployment platform in the pre-Docker era. Spearheaded a universal add-on system that bridged proprietary cloud APIs with 3rd-party SaaS integrations, laying the groundwork for modern orchestration.",
+      "An early multi-cloud deployment platform built in the pre-Docker era. Designed a universal add-on system bridging proprietary cloud APIs with third-party SaaS integrations.",
     technologies: [
       "Distributed Systems",
       "Cloud Orchestration",
@@ -124,9 +131,8 @@ const projects: Project[] = [
   },
   {
     title: "Xbox 360 Game Engine",
-    themeTitle: "The Reality Engine",
     description:
-      "Developed a custom high-performance game engine for Xbox 360 from the metal up. Implemented advanced HLSL shaders, rigid body physics simulation, and particle systems within strictly constrained console memory limits.",
+      "A custom game engine for Xbox 360 built from the metal up. HLSL shaders, rigid body physics, and particle systems — all within the console's strict memory constraints.",
     technologies: [
       "C# / .NET",
       "HLSL Shaders",
@@ -139,9 +145,8 @@ const projects: Project[] = [
   },
   {
     title: "Fintech Platform",
-    themeTitle: "The Commerce Core",
     description:
-      "Spearheaded the creation of a secure e-commerce platform for a major fintech entity. Designed the transactional core, payment gateway integrations, and PCI-compliant data flows handling substantial monetary volume.",
+      "Led creation of a secure e-commerce platform for a major fintech company. Designed the transactional core, payment gateway integrations, and PCI-compliant data flows.",
     technologies: [
       "Enterprise Architecture",
       "Payment Gateways",
@@ -160,26 +165,23 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto py-16">
         <div className="mb-24 relative">
           <h1 className="text-7xl font-serif font-black mb-8 tracking-tighter uppercase italic border-b-8 border-foreground inline-block rough">
-            The Gallery <br/>
-            <span className="text-primary italic">of Impossible Works</span>
+            Selected <br/>
+            <span className="text-primary italic">Work</span>
           </h1>
           <p className="text-xl font-prose text-foreground max-w-2xl mt-8">
-            "Artifacts from the forge. Here, abstract architecture becomes tangible reality."
+            A mix of products I&apos;ve built, client work, and side projects spanning two decades of engineering.
           </p>
-          <div className="absolute top-0 right-0 md:right-20 text-9xl font-serif opacity-5 select-none pointer-events-none">
-            &Omega;
-          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.title}
               className={`group relative bg-paper ink-sketch p-8 hover:-translate-y-2 transition-all duration-500 overflow-hidden ${
                 project.link ? "cursor-pointer" : ""
-              }`}
+              } ${project.featured ? "md:col-span-2 lg:col-span-1 ring-2 ring-primary" : ""}`}
               onClick={() =>
-                project.link && (window.location.href = project.link)
+                project.link && window.open(project.link, project.link.startsWith("http") ? "_blank" : "_self")
               }
             >
                {/* Background Glyph */}
@@ -193,16 +195,19 @@ export default function Portfolio() {
                         {project.icon}
                     </div>
                     {project.link && (
-                        <span className="font-serif italic text-sm border-b border-primary text-primary">View Artifact &rarr;</span>
+                        <span className="font-serif italic text-sm border-b border-primary text-primary">View Project &rarr;</span>
                     )}
                 </div>
 
-                <h3 className="text-3xl font-serif font-black mb-2 tracking-tighter italic rough">
-                  {project.themeTitle}
+                {project.featured && (
+                  <div className="text-xs uppercase tracking-widest text-primary mb-2 font-bold">
+                    Currently Building
+                  </div>
+                )}
+
+                <h3 className="text-3xl font-serif font-black mb-4 tracking-tighter italic rough">
+                  {project.title}
                 </h3>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground mb-6 font-bold">
-                    Code Name: {project.title}
-                </div>
 
                 <p className="text-lg text-foreground mb-8 leading-relaxed font-prose flex-grow">
                   {project.description}

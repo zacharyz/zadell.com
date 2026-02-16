@@ -54,22 +54,22 @@ export default function Contact() {
     <div className="pt-40 px-4 bg-background strange-loop min-h-screen">
       <div className="max-w-3xl mx-auto py-8 relative z-10 bg-card ink-sketch p-8">
         <h1 className="text-5xl font-serif font-bold mb-6 tracking-tighter uppercase italic text-center">
-          Send a Raven
+          Get in Touch
         </h1>
         {status === "success" && (
           <div className="mb-10 p-6 bg-secondary text-secondary-foreground font-bold ink-sketch text-center">
-            Your message has traveled through the looking glass!
+            Message sent! I&apos;ll get back to you soon.
           </div>
         )}
         {status === "error" && (
           <div className="mb-10 p-6 bg-primary text-primary-foreground font-bold ink-sketch text-center">
-            A strange loop occurred. Please try again.
+            Something went wrong. Please try again.
           </div>
         )}
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <label htmlFor="name" className="block text-2xl font-serif font-bold italic tracking-tight">
-              What is your name?
+              Your name
             </label>
             <input
               type="text"
@@ -78,12 +78,12 @@ export default function Contact() {
               onChange={handleChange}
               required
               className="w-full px-6 py-4 rounded-none border-4 border-foreground bg-background text-foreground text-xl focus:ring-4 focus:ring-primary outline-none transition-all"
-              placeholder="e.g. The Mad Hatter"
+              placeholder="Jane Smith"
             />
           </div>
           <div className="space-y-4">
             <label htmlFor="email" className="block text-2xl font-serif font-bold italic tracking-tight">
-              Where shall we reply?
+              Your email
             </label>
             <input
               type="email"
@@ -92,12 +92,12 @@ export default function Contact() {
               onChange={handleChange}
               required
               className="w-full px-6 py-4 rounded-none border-4 border-foreground bg-background text-foreground text-xl focus:ring-4 focus:ring-primary outline-none transition-all"
-              placeholder="e.g. hatter@wonderland.com"
+              placeholder="jane@example.com"
             />
           </div>
           <div className="space-y-4">
             <label htmlFor="message" className="block text-2xl font-serif font-bold italic tracking-tight">
-              The nature of your puzzle?
+              How can I help?
             </label>
             <textarea
               id="message"
@@ -106,7 +106,7 @@ export default function Contact() {
               onChange={handleChange}
               required
               className="w-full px-6 py-4 rounded-none border-4 border-foreground bg-background text-foreground text-xl focus:ring-4 focus:ring-primary outline-none transition-all"
-              placeholder="Detail your curiosity here..."
+              placeholder="Tell me about your project..."
             />
           </div>
           <button
@@ -114,7 +114,7 @@ export default function Contact() {
             disabled={status === "loading"}
             className="w-full bg-primary text-primary-foreground px-12 py-4 text-2xl rounded-none hover:translate-x-1 hover:translate-y-1 transition-all ink-sketch font-bold uppercase tracking-widest disabled:opacity-50"
           >
-            {status === "loading" ? "TRANSMITTING..." : "DISPATCH MESSAGE"}
+            {status === "loading" ? "SENDING..." : "SEND MESSAGE"}
           </button>
         </form>
       </div>
