@@ -4,9 +4,9 @@ export interface BlogPost {
   title: string;
   date: string;
   description: string;
+  readingTime: number;
+  tags?: string[];
+  coverImage?: string;
+  draft?: boolean;
 }
 
-export interface BlogState {
-  hasPosts: boolean;
-  lastChecked: number;
-} 

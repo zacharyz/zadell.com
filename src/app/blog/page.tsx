@@ -1,43 +1,66 @@
 import Link from "next/link";
-import { getAllPosts } from "@/utils/blog";
-
-export const dynamic = "force-dynamic";
+import Image from "next/image";
+import { getAllPosts, formatPostDate } from "@/utils/blog";
 
 export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <main className="min-h-screen pt-40 bg-background strange-loop">
-      <div className="max-w-4xl mx-auto px-4 py-16 relative z-10">
-        <h1 className="text-6xl font-serif font-black mb-16 text-foreground tracking-tighter uppercase rotate-1 rough">
-          Manuscripts from <br />
-          <span className="text-primary font-serif italic">The Looking Glass</span>
-        </h1>
-        <div className="space-y-12">
-          {posts.map((post) => (
-            <article
-              key={post.slug}
-              className="bg-paper ink-sketch p-8 hover:translate-x-2 transition-transform cursor-pointer"
-            >
-              <Link href={`/blog/${post.slug}`} className="block">
-                <h2 className="text-4xl font-bold text-foreground hover:text-primary mb-4 tracking-tight leading-none rough">
-                  {post.title}
-                </h2>
+    <main className="min-h-screen bg-ground-page pt-32 pb-24 px-4">
+      <div className="max-w-2xl mx-auto">
+        <header className="mb-16">
+          <div className="font-mono text-xs uppercase tracking-[0.2em] text-ink-dim mb-6">
+            zadell.com · essays
+          </div>
+          <h1 className="font-serif text-5xl text-ink-primary mb-4">Writing</h1>
+          <p className="text-ink-secondary leading-relaxed">
+            Personal essays on engineering, philosophy, and training.
+          </p>
+        </header>
+
+        {posts.length === 0 ? (
+          <div className="border-t border-rule-subtle pt-8 font-mono text-xs uppercase tracking-[0.2em] text-ink-dim">
+            First essays in progress.
+          </div>
+        ) : (
+          <div className="border-t border-rule-subtle">
+            {posts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block border-b border-rule-subtle bg-ground-raised hover:border-rule-strong transition-colors group"
+              >
+                {post.coverImage && (
+                  <div className="relative aspect-[3/2] border-b border-rule-subtle overflow-hidden">
+                    <Image
+                      src={post.coverImage}
+                      alt=""
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 672px"
+                    />
+                  </div>
+                )}
+                <div className="p-8">
+                  <div className="font-mono text-xs uppercase tracking-[0.2em] text-ink-dim mb-4">
+                    <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                    <span className="mx-2">·</span>
+                    <span>{post.readingTime} min read</span>
+                  </div>
+                  <h2 className="font-serif text-2xl text-ink-primary mb-3 leading-tight">
+                    {post.title}
+                  </h2>
+                  <p className="text-ink-secondary leading-relaxed">{post.description}</p>
+                  {post.tags && post.tags.length > 0 && (
+                    <div className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-ink-dim">
+                      {post.tags.join(" · ")}
+                    </div>
+                  )}
+                </div>
               </Link>
-              <div className="text-primary font-bold italic mb-6 tracking-widest uppercase text-sm">
-                &mdash; {post.date}
-              </div>
-              <p className="text-xl text-foreground/80 leading-relaxed">
-                {post.description}
-              </p>
-              <div className="mt-8 flex justify-end">
-                <Link href={`/blog/${post.slug}`} className="text-primary font-bold hover:underline rough">
-                  READ MORE &rarr;
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </main>
   );

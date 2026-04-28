@@ -1,63 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
-    --background: 40 20% 98%; /* Antique Book Page (Original) */
-    --paper: 40 20% 100%; /* White Paper (Matches original Card) */
-    --foreground: 0 0% 10%; /* Stark Ink */
+    --background: 40 20% 98%;
+    --paper: 40 20% 100%;
+    --foreground: 0 0% 10%;
     --card: 40 20% 100%;
     --card-foreground: 0 0% 10%;
     --popover: 40 20% 100%;
     --popover-foreground: 0 0% 10%;
-    --primary: 0 85% 45%; /* Chess Red */
+    --primary: 81 21% 39%;
     --primary-foreground: 40 20% 98%;
-    --secondary: 210 70% 40%; /* Looking Glass Blue */
+    --secondary: 0 0% 35%;
     --secondary-foreground: 40 20% 98%;
     --muted: 40 10% 92%;
     --muted-foreground: 0 0% 40%;
-    --accent: 40 20% 10%; /* Ink Black */
+    --accent: 40 20% 10%;
     --accent-foreground: 40 20% 98%;
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
     --border: 0 0% 10%;
     --input: 0 0% 10%;
-    --ring: 0 85% 45%;
+    --ring: 81 21% 39%;
     --radius: 0rem;
-  }
 
-  .dark {
-    --background: 240 10% 4%; /* Inky Black */
-    --paper: 240 10% 8%; /* Slightly lighter than background for content */
-    --foreground: 40 20% 98%; /* Ghostly White */
-    --card: 240 10% 8%;
-    --card-foreground: 40 20% 98%;
-    --popover: 240 10% 8%;
-    --popover-foreground: 40 20% 98%;
-    --primary: 0 90% 60%; /* Ethereal Red */
-    --primary-foreground: 240 10% 4%;
-    --secondary: 190 80% 50%; /* Spectral Blue */
-    --secondary-foreground: 240 10% 4%;
-    --muted: 240 10% 12%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 40 20% 98%;
-    --accent-foreground: 240 10% 4%;
-    --border: 0 0% 98%;
-    --input: 0 0% 98%;
-    --ring: 0 90% 60%;
+    /* Editorial-Archival tokens */
+    --ground-page: #F0EFE9;
+    --ground-raised: #F8F7F2;
+    --ink-primary: #1F1F1B;
+    --ink-secondary: #4A4A45;
+    --ink-dim: #8A8A82;
+    --accent-olive: #6B7A4F;
+    --accent-olive-muted: rgba(107, 122, 79, 0.15);
+    --accent-leather: #8B6B47;
+    --accent-slate: #5C6B7A;
+    --rule-strong: rgba(31, 31, 27, 0.28);
+    --rule-subtle: rgba(31, 31, 27, 0.10);
   }
-}
-
-@layer components {
-  .ink-sketch {
-    border: 2px solid hsl(var(--foreground));
-    box-shadow: 4px 4px 0px hsl(var(--foreground));
-  }
-
-  .rough {
-    filter: url(#rough-edge);
-  }
-/* ... other patterns ... */
 }
 
 @layer base {
@@ -65,10 +46,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-ground-page text-ink-primary font-sans;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-playfair), serif;
-    @apply font-bold;
+    font-family: var(--font-fraunces), ui-serif, Georgia, serif;
   }
 }

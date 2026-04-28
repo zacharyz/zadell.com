@@ -1,36 +1,29 @@
-import { Playfair_Display, Itim, EB_Garamond, Inter } from "next/font/google";
-import { ThemeProvider } from "@/context/ThemeContext";
+import { Fraunces, Inter, Roboto_Slab } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: '--font-inter',
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const garamond = EB_Garamond({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: '--font-garamond',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  variable: "--font-fraunces",
+  display: "swap",
 });
 
-const playfair = Playfair_Display({ 
+const robotoSlab = Roboto_Slab({
   subsets: ["latin"],
-  variable: '--font-playfair',
-});
-
-const itim = Itim({ 
-  weight: "400",
-  subsets: ["latin"],
-  variable: '--font-itim',
+  variable: "--font-roboto-slab",
+  display: "swap",
 });
 
 export const metadata = {
-  title: "Zac Zadell | Engineer, Consultant, Builder",
-  description:
-    "Full-stack engineer and consultant with 20+ years shipping at Nike, Facebook, and Unity. Currently building threshold.fit. Available for consulting.",
+  title: "Zac Zadell",
+  description: "Personal essays on engineering, philosophy, and training.",
 };
 
 export default function RootLayout({
@@ -39,27 +32,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
-        className={`${playfair.variable} ${itim.variable} ${inter.variable} ${garamond.variable} font-sans bg-background text-foreground transition-colors duration-300`}
+        className={`${inter.variable} ${fraunces.variable} ${robotoSlab.variable} font-sans bg-ground-page text-ink-primary antialiased`}
       >
-        <div dangerouslySetInnerHTML={{ __html: `
-          <svg style="display: none;">
-            <defs>
-              <filter id="rough-edge">
-                <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
-              </filter>
-            </defs>
-          </svg>
-        ` }} />
-        <ThemeProvider>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1 pb-16">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-1 pb-16">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

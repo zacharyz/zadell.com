@@ -1,4 +1,7 @@
-import { getAllPosts, getPostBySlug } from "@/utils/blog";
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { getAllPosts, getPostBySlug, formatPostDate } from "@/utils/blog";
 import Markdown from "markdown-to-jsx";
 
 export async function generateStaticParams() {
@@ -8,18 +11,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export const dynamic = "force-dynamic";
-export const revalidate = 3600; // Regenerate pages every hour
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export default async function BlogPost({ params }: PageProps) {
-  // Await the params
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  if (!post) return null;
+  if (!post) notFound();
 
   const contentWithoutTitle = post.content
     .split("\n")
@@ -27,30 +26,69 @@ export default async function BlogPost({ params }: PageProps) {
     .join("\n");
 
   return (
-    <main className="min-h-screen pt-40">
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100 rough">
-          {post.title}
-        </h1>
-        <div className="text-gray-600 dark:text-gray-400 mb-8">{post.date}</div>
+    <main className="min-h-screen bg-ground-raised pt-24 pb-24 px-4">
+      <div className="max-w-2xl mx-auto">
+        <Link
+          href="/blog"
+          className="inline-block font-mono text-xs uppercase tracking-[0.2em] text-ink-dim hover:text-ink-primary transition-colors mb-16"
+        >
+          ← Essays
+        </Link>
+
+        {post.coverImage && (
+          <div className="relative aspect-[3/2] border border-rule-subtle mb-16 overflow-hidden">
+            <Image
+              src={post.coverImage}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 672px"
+              priority
+            />
+          </div>
+        )}
+
+        <header className="mb-12">
+          <div className="font-mono text-xs uppercase tracking-[0.2em] text-ink-dim mb-6 pb-6 border-b border-rule-subtle">
+            <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+            <span className="mx-2">·</span>
+            <span>{post.readingTime} min read</span>
+          </div>
+          <h1 className="font-serif text-4xl md:text-5xl text-ink-primary leading-[1.1] mb-6">
+            {post.title}
+          </h1>
+          <p className="text-lg text-ink-secondary leading-relaxed">{post.description}</p>
+        </header>
+
         <article
-          className="prose dark:prose-invert prose-lg max-w-none
-          prose-headings:text-gray-900 prose-headings:dark:text-gray-100
-          prose-p:text-gray-700 prose-p:dark:text-gray-300
-          prose-a:text-blue-600 prose-a:dark:text-blue-400
-          prose-blockquote:border-blue-500 prose-blockquote:dark:border-blue-400
-          prose-code:text-gray-800 prose-code:dark:text-gray-200
-          prose-pre:bg-gray-50 prose-pre:dark:bg-gray-800
-          prose-pre:shadow-sm prose-pre:border prose-pre:border-gray-200 
-          prose-pre:dark:border-gray-700
-          [&_pre]:p-4 [&_pre]:rounded-lg
-          [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded
-          [&_code]:bg-gray-100 [&_code]:dark:bg-gray-800
-          [&_pre_code]:p-0 [&_pre_code]:bg-transparent [&_pre_code]:dark:bg-transparent
-          bg-paper ink-sketch p-8 rounded-lg font-sans"
+          className="prose prose-lg max-w-none
+            prose-headings:font-serif prose-headings:text-ink-primary prose-headings:font-normal
+            prose-h2:mt-16 prose-h2:mb-6 prose-h2:text-3xl
+            prose-h3:font-sans prose-h3:font-semibold prose-h3:text-xl prose-h3:mt-12 prose-h3:mb-4
+            prose-p:text-ink-primary prose-p:leading-[1.8]
+            prose-a:text-accent-olive prose-a:font-normal prose-a:no-underline hover:prose-a:underline
+            prose-strong:text-ink-primary prose-strong:font-semibold
+            prose-em:text-ink-primary
+            prose-blockquote:border-l-2 prose-blockquote:border-accent-olive prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:text-ink-secondary prose-blockquote:pl-6
+            prose-img:my-12 prose-img:rounded-none
+            prose-code:text-ink-primary prose-code:bg-accent-olive-muted prose-code:rounded-none prose-code:px-1.5 prose-code:py-0.5 prose-code:font-normal prose-code:before:content-none prose-code:after:content-none
+            prose-pre:bg-ink-primary prose-pre:text-ground-page prose-pre:rounded-none
+            prose-ul:text-ink-primary prose-ol:text-ink-primary
+            prose-hr:border-rule-subtle"
         >
           <Markdown>{contentWithoutTitle}</Markdown>
         </article>
+
+        <footer className="mt-20 pt-8 border-t border-rule-subtle">
+          {post.tags && post.tags.length > 0 && (
+            <div className="font-mono text-xs uppercase tracking-[0.2em] text-ink-dim mb-4">
+              {post.tags.join(" · ")}
+            </div>
+          )}
+          <div className="font-mono text-xs uppercase tracking-[0.2em] text-ink-dim">
+            by Zach
+          </div>
+        </footer>
       </div>
     </main>
   );

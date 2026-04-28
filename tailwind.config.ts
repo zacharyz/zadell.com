@@ -3,7 +3,6 @@ import animate from "tailwindcss-animate";
 import typography from "@tailwindcss/typography";
 
 export default {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -40,9 +39,10 @@ export default {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
-        serif: ["var(--font-playfair)", "ui-serif", "Georgia"],
-        prose: ["var(--font-garamond)", "ui-serif", "serif"],
-        itim: ["var(--font-itim)", "cursive"],
+        serif: ["var(--font-fraunces)", "ui-serif", "Georgia"],
+        display: ["var(--font-fraunces)", "ui-serif", "Georgia"],
+        body: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
+        mono: ["var(--font-roboto-slab)", "ui-monospace", "SFMono-Regular"],
       },
       colors: {
         background: "hsl(var(--background))",
@@ -71,6 +71,12 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          olive: {
+            DEFAULT: "var(--accent-olive)",
+            muted: "var(--accent-olive-muted)",
+          },
+          leather: "var(--accent-leather)",
+          slate: "var(--accent-slate)",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -79,12 +85,18 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
+        ground: {
+          page: "var(--ground-page)",
+          raised: "var(--ground-raised)",
+        },
+        ink: {
+          primary: "var(--ink-primary)",
+          secondary: "var(--ink-secondary)",
+          dim: "var(--ink-dim)",
+        },
+        rule: {
+          strong: "var(--rule-strong)",
+          subtle: "var(--rule-subtle)",
         },
       },
     },
