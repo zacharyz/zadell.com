@@ -11,7 +11,7 @@ export default function About() {
 
         <article className="space-y-6 text-lg text-ink-primary leading-[1.8]">
           <p>
-            I&apos;m Zac Zadell. I write essays here about engineering, philosophy, and training —
+            I&apos;m Zac Zadell. I write essays here about engineering, startups, and training —
             the threads that keep showing up when I sit down to think.
           </p>
           <p>

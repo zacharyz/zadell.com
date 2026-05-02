@@ -5,13 +5,11 @@ export default function Home() {
   const posts = getAllPosts().slice(0, 5);
 
   return (
-    <main className="min-h-screen pt-32 pb-24 px-4">
+    <main className="min-h-screen pt-40 pb-24 px-4">
       <div className="max-w-2xl mx-auto">
-        <h1 className="font-serif text-5xl text-ink-primary mb-12 leading-tight">Zac Zadell</h1>
-
-        <article className="space-y-6 text-lg text-ink-primary leading-[1.8]">
+        <article className="space-y-6 font-serif text-2xl text-ink-primary leading-[1.55]">
           <p>
-            I&apos;m a software engineer in Portland. I write essays on engineering, philosophy,
+            I&apos;m a software engineer in Portland. I write essays on engineering, startups,
             and training — the threads that keep showing up when I sit down to think.
           </p>
           <p>

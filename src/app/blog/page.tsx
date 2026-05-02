@@ -14,7 +14,7 @@ export default function BlogPage() {
           </div>
           <h1 className="font-serif text-5xl text-ink-primary mb-4">Writing</h1>
           <p className="text-ink-secondary leading-relaxed">
-            Personal essays on engineering, philosophy, and training.
+            Personal essays on engineering, startups, and training.
           </p>
         </header>
 

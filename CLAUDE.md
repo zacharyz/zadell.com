@@ -4,7 +4,7 @@ This file provides guidance to Claude Code when working in zadell.com.
 
 ## Project Overview
 
-zadell.com is Zach's personal website + blog. Long-form essay content (philosophy, engineering, training), a basic "about" landing for visitors who want to know who I am, and a contact form. Not a portfolio or services surface — explicitly a personal writing platform. Solo-author project, no other contributors.
+zadell.com is Zach's personal website + blog. Long-form essay content (engineering, startups, training), a basic "about" landing for visitors who want to know who I am, and a contact form. Not a portfolio or services surface — explicitly a personal writing platform. Solo-author project, no other contributors.
 
 The migration to a quieter, essay-led aesthetic (see `docs/editorial-migration.md`) deletes the existing `/portfolio`, `/services`, and `/experiments` route directories. They still exist on disk during the transition; treat them as scheduled for removal in Phase 5.
 

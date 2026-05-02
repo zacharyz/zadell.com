@@ -23,7 +23,7 @@ const robotoSlab = Roboto_Slab({
 
 export const metadata = {
   title: "Zac Zadell",
-  description: "Personal essays on engineering, philosophy, and training.",
+  description: "Personal essays on engineering, startups, and training.",
 };
 
 export default function RootLayout({
